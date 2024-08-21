@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Tsundoku.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Tsundoku.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Tsundoku">
+
+    <TabBar>
+        <Tab Title="Piles">
+            <ShellContent
+                Title="Piles"
+                ContentTemplate="{DataTemplate views:MainPage}"
+                Route="MainPage" />
+        </Tab>
+        <Tab Title="Register">
+            <ShellContent
+                Title="Register"
+                ContentTemplate="{DataTemplate views:RegisterPageView}"
+                Route="FlagsBoard" />
+        </Tab>
+    </TabBar>
+
+</Shell>

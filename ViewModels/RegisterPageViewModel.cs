@@ -6,6 +6,7 @@ public partial class RegisterPageViewModel : BaseViewModel
 {
     public RegisterPageViewModel()
     {
+
     }
 
     [ObservableProperty]

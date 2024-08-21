@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Tsundoku.ViewModels;
 using Tsundoku.Views;
+using ZXing.Net.Maui.Controls;
 
 namespace Tsundoku
 {
@@ -15,7 +16,8 @@ namespace Tsundoku
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseBarcodeReader();
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();

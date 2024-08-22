@@ -23,9 +23,12 @@ namespace Tsundoku
             builder.Services.AddSingleton<MainPageViewModel>();
 
             builder.Services.AddSingleton<RegisterPageView>();
-            builder.Services.AddTransient<RegisterPageViewModel>();
+            builder.Services.AddSingleton<RegisterPageViewModel>();
+
+            builder.Services.AddTransient<CameraPageView>();
+            builder.Services.AddTransient<CameraPageViewModel>();
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

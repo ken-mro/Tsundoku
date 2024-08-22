@@ -3,16 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tsundoku.Views.RegisterPageView"
              xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
-             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
              Title="Register"
              x:DataType="viewmodels:RegisterPageViewModel">
-    <VerticalStackLayout>
-        <Entry 
-            Placeholder="Type ISBN Code"
-            Text="{Binding Isbn}" />
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <VerticalStackLayout Grid.Row="0">
+            <Image
+                Source="{Binding ImageUrl}"
+                HeightRequest="400"
+                Aspect="AspectFit"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Entry 
+                    Placeholder="Type ISBN Code"
+                    Text="{Binding Isbn}"
+                    VerticalOptions="EndAndExpand"/>
+                <Button
+                    Grid.Column="1"
+                    Text="Search"
+                    Command="{Binding SearchCommand}" />
+            </Grid>
+        <Button
+            VerticalOptions="EndAndExpand"
+            Text="Camera"
+            Command="{Binding NavigateToCameraPageCommand}" />
     </VerticalStackLayout>
+        
+    </Grid>
 </ContentPage>

@@ -10,13 +10,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <VerticalStackLayout Grid.Row="0">
-            <Image
-                Source="{Binding ImageUrl}"
-                HeightRequest="400"
-                Aspect="AspectFit"/>
-        </VerticalStackLayout>
-
         <VerticalStackLayout Grid.Row="1" Spacing="10">
             <Grid>
                 <Grid.ColumnDefinitions>

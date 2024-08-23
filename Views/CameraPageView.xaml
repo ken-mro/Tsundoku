@@ -4,9 +4,10 @@
              x:Class="Tsundoku.Views.CameraPageView"
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
              Title="CameraPageView">
-    <VerticalStackLayout>
+    <StackLayout>
         <zxing:CameraBarcodeReaderView
             x:Name="cameraBarcodeReaderView"
             BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected"/>
-    </VerticalStackLayout>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    </StackLayout>
 </ContentPage>

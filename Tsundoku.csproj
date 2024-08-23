@@ -76,6 +76,9 @@
 	  <MauiXaml Update="Views\CameraPageView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ConfirmBookView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterPageView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

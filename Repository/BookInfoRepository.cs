@@ -21,28 +21,48 @@ public class BookInfoRepository : IBookInfoRepository
         await _conn.CreateTableAsync<BookInfo>();
     }
 
-    public Task AddBookInfoAsync(BookInfo bookInfo)
+    public async Task<int> AddBookInfoAsync(string isbn10)
     {
-        throw new NotImplementedException();
+        await Init();
+        var bookInfo = new BookInfo
+        {
+            RegistrationDate = DateTime.Now,
+            Isbn10 = isbn10,
+            Read = false
+        };
+        return await _conn.InsertAsync(bookInfo);
     }
 
-    public Task DeleteBookInfoAsync(int bookInfoId)
+    public async Task<int> DeleteBookInfoAsync(int id)
     {
-        throw new NotImplementedException();
+        await Init();
+        return await _conn.Table<BookInfo>().Where(i => i.Id == id).DeleteAsync();
     }
 
-    public Task<BookInfo> GetBookInfoAsync(int id)
+    public async Task<IEnumerable<Book>> GetAllBooksAsync()
     {
-        throw new NotImplementedException();
+        await Init();
+        var bookInfoList = await _conn.Table<BookInfo>().ToListAsync();
+        return [.. bookInfoList.ConvertAll(GetBook)];
     }
 
-    public Task<IEnumerable<BookInfo>> GetBookInfosAsync()
+    public async Task<int> UpdateReadStatusAsync(int Id, DateTime readDateTime, bool read)
     {
-        throw new NotImplementedException();
+        if (Id == 0) return 0;
+        await Init();
+        var result = await _conn.ExecuteAsync("UPDATE BookInfo SET Read = ?, ReadDate = ? WHERE Id = ?", read, readDateTime, Id);
+        return result;
     }
 
-    public Task UpdateBookInfoAsync(BookInfo bookInfo)
+    private Book GetBook(BookInfo bookInfo)
     {
-        throw new NotImplementedException();
+        return new Book
+        {
+            Id = bookInfo.Id,
+            RegistrationDate = bookInfo.RegistrationDate,
+            ReadDate = bookInfo.ReadDate,
+            Isbn10 = bookInfo.Isbn10,
+            Read = bookInfo.Read
+        };
     }
 }

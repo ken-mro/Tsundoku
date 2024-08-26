@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Tsundoku.Repository;
 using Tsundoku.ViewModels;
 using Tsundoku.Views;
 using ZXing.Net.Maui.Controls;
@@ -29,6 +30,9 @@ namespace Tsundoku
 
             builder.Services.AddTransient<CameraPageView>();
             builder.Services.AddTransient<CameraPageViewModel>();
+
+            builder.Services.AddSingleton<IBookInfoRepository, BookInfoRepository>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

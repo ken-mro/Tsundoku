@@ -6,7 +6,7 @@ namespace Tsundoku.Models;
 public class BookInfo
 {
     [PrimaryKey, AutoIncrement]
-    public int Id { get; init; }
+    public int Id { get; set; }
 
     public DateTime RegistrationDate { get; init; }
 

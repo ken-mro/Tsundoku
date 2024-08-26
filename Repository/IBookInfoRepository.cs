@@ -4,9 +4,8 @@ namespace Tsundoku.Repository;
 
 public interface IBookInfoRepository
 {
-    Task<IEnumerable<BookInfo>> GetBookInfosAsync();
-    Task<BookInfo> GetBookInfoAsync(int id);
-    Task AddBookInfoAsync(BookInfo bookInfo);
-    Task UpdateBookInfoAsync(BookInfo bookInfo);
-    Task DeleteBookInfoAsync(int bookInfoId);
+    Task<IEnumerable<Book>> GetAllBooksAsync();
+    Task<int> AddBookInfoAsync(string isbn10);
+    Task<int> DeleteBookInfoAsync(int id);
+    Task<int> UpdateReadStatusAsync(int Id, DateTime readDateTime, bool read);
 }

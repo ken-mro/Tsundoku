@@ -2,14 +2,18 @@ using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ISBNUtility;
+using Tsundoku.Models;
+using Tsundoku.Repository;
 
 namespace Tsundoku.ViewModels;
 
 public partial class ConfirmBookViewModel : BaseViewModel
 {
-	public ConfirmBookViewModel(string isbn)
+    private IBookInfoRepository _bookInfoRepository;
+	public ConfirmBookViewModel(string isbn10, IBookInfoRepository bookInfoRepository)
 	{
-        _isbn10 = isbn;
+        _bookInfoRepository = bookInfoRepository;
+        _isbn10 = isbn10;
         ImageUrl = $"https://images.amazon.com/images/P/{_isbn10}.jpg";
     }
 
@@ -28,11 +32,19 @@ public partial class ConfirmBookViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            await Task.Delay(2000);
+            var result = await _bookInfoRepository.AddBookInfoAsync(_isbn10);
+            if (result > 0)
+            {
+                await Shell.Current.CurrentPage.DisplayAlert("Completed", "The book stacked successfully", "OK");
+            }
+            else
+            {
+                throw new Exception("Failed to stack the book");
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex);
+            await Shell.Current.CurrentPage.DisplayAlert("Error", ex.Message, "OK");
         }
         finally
         {

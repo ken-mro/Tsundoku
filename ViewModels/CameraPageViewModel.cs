@@ -1,5 +1,6 @@
 using CommunityToolkit.Maui.Views;
 using ISBNUtility;
+using Tsundoku.Repository;
 using Tsundoku.Views;
 using ZXing.Net.Maui;
 
@@ -7,8 +8,10 @@ namespace Tsundoku.ViewModels;
 
 public partial class CameraPageViewModel : BaseViewModel
 {
-    public CameraPageViewModel()
+    private IBookInfoRepository _bookInfoRepository;
+    public CameraPageViewModel(IBookInfoRepository bookInfoRepository)
     {
+        _bookInfoRepository = bookInfoRepository;
     }
 
     public async Task ShowConfirmationPopup(object sender, BarcodeDetectionEventArgs e)
@@ -29,7 +32,7 @@ public partial class CameraPageViewModel : BaseViewModel
 
             await Device.InvokeOnMainThreadAsync(async () =>
             {
-                await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode)));
+                await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode, _bookInfoRepository)));
             });
         }
         catch (Exception ex)

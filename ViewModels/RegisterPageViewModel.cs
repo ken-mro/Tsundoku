@@ -2,15 +2,17 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ISBNUtility;
+using Tsundoku.Repository;
 using Tsundoku.Views;
 
 namespace Tsundoku.ViewModels;
 
 public partial class RegisterPageViewModel : BaseViewModel
 {
-    public RegisterPageViewModel()
+    private IBookInfoRepository _bookInfoRepository;
+    public RegisterPageViewModel(IBookInfoRepository bookInfoRepository)
     {
-
+        _bookInfoRepository = bookInfoRepository;
     }
 
     [ObservableProperty]
@@ -32,7 +34,7 @@ public partial class RegisterPageViewModel : BaseViewModel
                 isbnCode = isbnUtility.ConvertISBN(Isbn).Replace("-", "");
             }
 
-            await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode)));
+            await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode, _bookInfoRepository)));
         }
         catch(Exception ex)
         {

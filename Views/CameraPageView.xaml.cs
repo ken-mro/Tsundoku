@@ -1,5 +1,6 @@
 using CommunityToolkit.Maui.Views;
 using ISBNUtility;
+using Tsundoku.Repository;
 using Tsundoku.ViewModels;
 using ZXing.Net.Maui;
 
@@ -8,10 +9,10 @@ namespace Tsundoku.Views;
 public partial class CameraPageView : ContentPage
 {
     CameraPageViewModel _vm;
-    public CameraPageView()
+    public CameraPageView(IBookInfoRepository bookInfoRepository)
     {
         InitializeComponent();
-        BindingContext = _vm = new CameraPageViewModel();
+        BindingContext = _vm = new CameraPageViewModel(bookInfoRepository);
         cameraBarcodeReaderView.Options = new BarcodeReaderOptions
         {
             Formats = BarcodeFormats.OneDimensional,

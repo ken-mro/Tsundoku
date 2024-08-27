@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Tsundoku.Views.CertificatePageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Tsundoku.Models;assembly=Tsundoku"
+    xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
+    Title="Certificates"
+    x:DataType="viewmodels:CertificatePageViewModel">
+    <Grid Padding="5" RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                x:Name="collectionView"
+                Background="AntiqueWhite"
+                ItemsSource="{Binding ReadBookCertificates}"
+                VerticalOptions="FillAndExpand">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type models:Book}">
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItem
+                                    BackgroundColor="Gray"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=DeleteBookCommand}"
+                                    CommandParameter="{Binding .}"
+                                    IconImageSource="trash.png" />
+                            </SwipeView.LeftItems>
+                            <Frame
+                                Margin="2"
+                                Padding="5"
+                                BackgroundColor="Navy"
+                                BorderColor="Transparent"
+                                CornerRadius="0"
+                                HeightRequest="200">
+                                <Border
+                                    BackgroundColor="Gold"
+                                    Stroke="Transparent"
+                                    StrokeShape="RoundRectangle 0,40,30,0"
+                                    StrokeThickness="2">
+                                    <Border
+                                        BackgroundColor="White"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 0,90,60,0"
+                                        StrokeThickness="2">
+                                        <Grid Margin="10" VerticalOptions="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image
+                                                Margin="10"
+                                                HeightRequest="150"
+                                                HorizontalOptions="End"
+                                                Source="{Binding ImageUrl}"
+                                                VerticalOptions="Center" />
+                                            <VerticalStackLayout
+                                                Grid.Column="1"
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="Center">
+                                                <Image
+                                                    HeightRequest="25"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Source="award.png"
+                                                    VerticalOptions="Center" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="Large"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Text="CERTIFICATE"
+                                                    TextColor="Black"
+                                                    VerticalOptions="Center" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="Micro"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Text="OF ACHIEVEMENT"
+                                                    TextColor="Black"
+                                                    VerticalOptions="Center" />
+                                                <Grid
+                                                    Padding="10"
+                                                    ColumnSpacing="10"
+                                                    VerticalOptions="Center">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        FontAttributes="Bold"
+                                                        FontSize="Body"
+                                                        HorizontalOptions="Start"
+                                                        LineBreakMode="TailTruncation"
+                                                        LineHeight="1"
+                                                        Text="ISBN-10:"
+                                                        TextColor="Black"
+                                                        VerticalOptions="Center" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Grid.Column="1"
+                                                        FontAttributes="Bold"
+                                                        FontSize="Body"
+                                                        HorizontalOptions="Center"
+                                                        LineBreakMode="TailTruncation"
+                                                        LineHeight="1"
+                                                        Text="{Binding Isbn10}"
+                                                        TextColor="Red"
+                                                        VerticalOptions="Center" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        FontAttributes="Bold"
+                                                        FontSize="Body"
+                                                        HorizontalOptions="Start"
+                                                        LineBreakMode="TailTruncation"
+                                                        LineHeight="1"
+                                                        Text="Read date:"
+                                                        TextColor="Black"
+                                                        VerticalOptions="Center" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Grid.Column="2"
+                                                        FontAttributes="Bold"
+                                                        FontSize="Body"
+                                                        HorizontalOptions="Center"
+                                                        LineBreakMode="TailTruncation"
+                                                        LineHeight="1"
+                                                        Text="{Binding ReadDateString}"
+                                                        TextColor="Red"
+                                                        VerticalOptions="Center" />
+                                                </Grid>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

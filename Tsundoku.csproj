@@ -79,6 +79,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\CertificatePageView.xaml.cs">
+	    <DependentUpon>CertificatePageView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\RegisterPageView.xaml.cs">
 	    <DependentUpon>RegisterPageView.xaml</DependentUpon>
 	  </Compile>
@@ -86,6 +89,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\CameraPageView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CertificatePageView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ConfirmBookView.xaml">

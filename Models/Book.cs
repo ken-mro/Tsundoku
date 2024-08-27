@@ -15,6 +15,7 @@ public class Book
     public string RegistrationDateString => RegistrationDate.ToString("dd MMM yyyy");
     public Color Color => _colors.ElementAt(Id % 4);
     public required DateTime ReadDate { get; set; }
+    public string ReadDateString => ReadDate.ToString("dd MMM yyyy");
     public required string Isbn10 { get; init; }
     public string ImageUrl => $"https://images.amazon.com/images/P/{Isbn10}.jpg";
     public required bool Read { get; set; } = false;

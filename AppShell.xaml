@@ -8,6 +8,12 @@
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
+        <Tab Title="Certificates">
+            <ShellContent
+                Title="Certificates"
+                ContentTemplate="{DataTemplate views:CertificatePageView}"
+                Route="CertificatePage" />
+        </Tab>
         <Tab Title="Stack">
             <ShellContent
                 Title="Stack"
@@ -18,7 +24,7 @@
             <ShellContent
                 Title="Register"
                 ContentTemplate="{DataTemplate views:RegisterPageView}"
-                Route="FlagsBoard" />
+                Route="RegisterPage" />
         </Tab>
     </TabBar>
 

@@ -28,6 +28,9 @@ namespace Tsundoku
             builder.Services.AddSingleton<RegisterPageView>();
             builder.Services.AddSingleton<RegisterPageViewModel>();
 
+            builder.Services.AddSingleton<CertificatePageView>();
+            builder.Services.AddSingleton<CertificatePageViewModel>();
+
             builder.Services.AddTransient<CameraPageView>();
             builder.Services.AddTransient<CameraPageViewModel>();
 

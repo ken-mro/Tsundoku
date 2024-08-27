@@ -46,7 +46,7 @@
 		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' " Include="Resources\AppIcon\appicon.svg" Color="Transparent" BaseSize="128, 128" ForegroundScale="0.55" />
 		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios' " Include="Resources\AppIcon\appicon.svg" Color="Transparent" BaseSize="128, 128" ForegroundScale=".9" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\AppIcon\appicon.svg" Color="#4A291A" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -60,6 +60,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\award.png" />
+	  <None Remove="Resources\Images\award_plain.png" />
+	  <None Remove="Resources\Images\book_stack.png" />
+	  <None Remove="Resources\Images\book_stack_plain.png" />
+	  <None Remove="Resources\Images\register.png" />
 	  <None Remove="Resources\Images\trash.png" />
 	</ItemGroup>
 

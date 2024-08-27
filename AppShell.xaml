@@ -8,19 +8,19 @@
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
-        <Tab Title="Certificates">
+        <Tab Title="Certificates" Icon="award_plain.png">
             <ShellContent
                 Title="Certificates"
                 ContentTemplate="{DataTemplate views:CertificatePageView}"
                 Route="CertificatePage" />
         </Tab>
-        <Tab Title="Stack">
+        <Tab Title="Stack" Icon="book_stack_plain.png">
             <ShellContent
                 Title="Stack"
                 ContentTemplate="{DataTemplate views:MainPage}"
                 Route="MainPage" />
         </Tab>
-        <Tab Title="Register">
+        <Tab Title="Register" Icon="register.png">
             <ShellContent
                 Title="Register"
                 ContentTemplate="{DataTemplate views:RegisterPageView}"

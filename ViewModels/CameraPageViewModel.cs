@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Views;
-using ISBNUtility;
 using Tsundoku.Repository;
+using Tsundoku.Utility;
 using Tsundoku.Views;
 using ZXing.Net.Maui;
 
@@ -26,8 +26,7 @@ public partial class CameraPageViewModel : BaseViewModel
             string isbnCode = code;
             if (code.Length == 13)
             {
-                var isbnUtility = new ISBN();
-                isbnCode = isbnUtility.ConvertISBN(code).Replace("-", "");
+                isbnCode = IsbnUtility.GetIsbn10(isbnCode);
             }
 
             await Device.InvokeOnMainThreadAsync(async () =>

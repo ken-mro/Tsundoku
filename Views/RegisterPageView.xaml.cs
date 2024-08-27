@@ -1,5 +1,4 @@
 using System.Runtime.ExceptionServices;
-using ISBNUtility;
 using Tsundoku.ViewModels;
 using ZXing.Net.Maui;
 

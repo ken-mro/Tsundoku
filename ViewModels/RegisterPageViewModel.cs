@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ISBNUtility;
 using Tsundoku.Repository;
+using Tsundoku.Utility;
 using Tsundoku.Views;
 
 namespace Tsundoku.ViewModels;
@@ -30,8 +30,7 @@ public partial class RegisterPageViewModel : BaseViewModel
             string isbnCode = Isbn;
             if (Isbn.Length == 13)
             {
-                var isbnUtility = new ISBN();
-                isbnCode = isbnUtility.ConvertISBN(Isbn).Replace("-", "");
+                isbnCode = IsbnUtility.GetIsbn10(Isbn);
             }
 
             await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode, _bookInfoRepository)));

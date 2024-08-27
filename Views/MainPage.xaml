@@ -26,16 +26,15 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:Book}">
                         <SwipeView>
-                            <SwipeView.LeftItems>
+                            <SwipeView.RightItems>
                                 <SwipeItem
                                     BackgroundColor="Gray"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=DeleteBookCommand}"
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="trash.png"
-                                    Text="Delete" />
-                            </SwipeView.LeftItems>
+                                    IconImageSource="trash_upsidedown.png" />
+                            </SwipeView.RightItems>
                             <Frame
-                                Padding="2"
+                                Padding="0"
                                 BackgroundColor="Transparent"
                                 BorderColor="Transparent">
                                 <Frame.GestureRecognizers>
@@ -56,13 +55,13 @@
                                             <ColumnDefinition Width="50" />
                                         </Grid.ColumnDefinitions>
                                         <BoxView
-                                            Grid.Column="0"
+                                            Grid.Column="2"
                                             Background="Black"
                                             BackgroundColor="Black"
                                             HeightRequest="60"
                                             WidthRequest="60" />
                                         <Border
-                                            Grid.Column="0"
+                                            Grid.Column="2"
                                             HeightRequest="50"
                                             Stroke="DarkGoldenrod"
                                             StrokeShape="Rectangle"
@@ -70,22 +69,24 @@
                                             WidthRequest="50" />
                                         <Image
                                             Grid.Column="1"
-                                            HeightRequest="80"
+                                            Margin="-15"
+                                            HeightRequest="110"
                                             HorizontalOptions="Center"
-                                            Rotation="180"
+                                            Rotation="90"
                                             Source="{Binding ImageUrl}"
                                             VerticalOptions="Center" />
                                         <BoxView
-                                            Grid.Column="2"
+                                            Grid.Column="0"
                                             BackgroundColor="White"
                                             WidthRequest="20" />
                                         <Label
-                                            Grid.Column="2"
+                                            Grid.Column="0"
                                             FontSize="8"
                                             HorizontalOptions="Center"
                                             LineBreakMode="NoWrap"
-                                            Rotation="-90"
+                                            Rotation="90"
                                             Text="{Binding Isbn10}"
+                                            TextColor="Black"
                                             VerticalOptions="CenterAndExpand" />
                                     </Grid>
                                 </Border>

@@ -7,7 +7,7 @@ public static class IsbnUtility
         if (string.IsNullOrEmpty(code)) return false;
 
         var fixedCode = code.Replace("-", "").Replace(" ", "");
-        if (fixedCode.Length != 10 || fixedCode.Length != 13) return false;
+        if (fixedCode.Length != 10 && fixedCode.Length != 13) return false;
 
         if (fixedCode.Length == 13)
         {

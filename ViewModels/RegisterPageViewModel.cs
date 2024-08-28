@@ -21,7 +21,7 @@ public partial class RegisterPageViewModel : BaseViewModel
     [RelayCommand]
     async Task SearchAsync()
     {
-        if (IsBusy) return;
+        if (IsBusy || string.IsNullOrEmpty(Isbn)) return;
         try
         {
             IsBusy = true;

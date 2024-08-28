@@ -66,8 +66,15 @@
                                                 Margin="10"
                                                 HeightRequest="150"
                                                 HorizontalOptions="End"
-                                                Source="{Binding ImageUrl}"
-                                                VerticalOptions="Center" />
+                                                VerticalOptions="Center">
+                                                <Image.Source>
+                                                    <UriImageSource
+                                                        CacheValidity="30"
+                                                        CachingEnabled="True"
+                                                        Uri="{Binding ImageUrl}" />
+                                                </Image.Source>
+                                            </Image>
+
                                             <VerticalStackLayout
                                                 Grid.Column="1"
                                                 HorizontalOptions="Center"

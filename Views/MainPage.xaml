@@ -42,13 +42,17 @@
                                     CommandParameter="{Binding .}"
                                     IconImageSource="trash_upsidedown.png" />
                             </SwipeView.RightItems>
+                            <SwipeView.LeftItems>
+                                <SwipeItem
+                                    BackgroundColor="LightGreen"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=ReadBookCommand}"
+                                    CommandParameter="{Binding .}"
+                                    IconImageSource="check_upsidedown.png" />
+                            </SwipeView.LeftItems>
                             <Frame
                                 Padding="0"
                                 BackgroundColor="Transparent"
                                 BorderColor="Transparent">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=ReadBookCommand}" CommandParameter="{Binding .}" />
-                                </Frame.GestureRecognizers>
                                 <Border
                                     BackgroundColor="{Binding Color}"
                                     Stroke="Black"

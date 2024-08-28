@@ -29,7 +29,7 @@ public partial class CameraPageViewModel : BaseViewModel
                 isbnCode = IsbnUtility.GetIsbn10(isbnCode);
             }
 
-            await Device.InvokeOnMainThreadAsync(async () =>
+            await MainThread.InvokeOnMainThreadAsync(async () =>
             {
                 await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode, _bookInfoRepository)));
             });

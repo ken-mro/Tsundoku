@@ -26,7 +26,7 @@
                         <SwipeView>
                             <SwipeView.LeftItems>
                                 <SwipeItem
-                                    BackgroundColor="Gray"
+                                    BackgroundColor="OrangeRed"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CertificatePageViewModel}}, Path=DeleteBookCommand}"
                                     CommandParameter="{Binding .}"
                                     IconImageSource="trash.png" />

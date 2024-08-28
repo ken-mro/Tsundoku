@@ -28,7 +28,7 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItem
-                                    BackgroundColor="Gray"
+                                    BackgroundColor="OrangeRed"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=DeleteBookCommand}"
                                     CommandParameter="{Binding .}"
                                     IconImageSource="trash_upsidedown.png" />

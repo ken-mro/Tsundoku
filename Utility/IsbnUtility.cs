@@ -2,6 +2,25 @@
 
 public static class IsbnUtility
 {
+    public static bool IsIsbnCode(string code)
+    {
+        if (string.IsNullOrEmpty(code)) return false;
+
+        var fixedCode = code.Replace("-", "").Replace(" ", "");
+        if (fixedCode.Length != 10 || fixedCode.Length != 13) return false;
+
+        if (fixedCode.Length == 13)
+        {
+            return IsIsbn13Prefix(fixedCode);
+        }
+
+        return true;
+    }
+    private static bool IsIsbn13Prefix(string code)
+    {
+        return code.StartsWith("978") || code.StartsWith("979");
+    }
+
     public static string GetIsbn10(string code)
     {
         var fixedCode = code.Replace("-", "").Replace(" ", "");

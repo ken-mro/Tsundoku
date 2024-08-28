@@ -29,6 +29,53 @@
                 ItemsSource="{Binding BooksInStack}"
                 Rotation="180"
                 VerticalOptions="FillAndExpand">
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout
+                        Padding="5"
+                        Rotation="180"
+                        Spacing="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="craftmincho"
+                            FontSize="Large"
+                            HorizontalOptions="Center"
+                            Text="How to use this app"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            FontFamily="craftmincho"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="1.To stack books, go to Register page and register books."
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            FontFamily="craftmincho"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="2. To see the stack books, back to Stack page and pull up to refresh."
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            FontFamily="craftmincho"
+                            FontSize="Medium"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="3. When you've read a book, swiping left the book and tap the tick icon in it. The certificate of your completion of this book is issued."
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            FontFamily="craftmincho"
+                            FontSize="Medium"
+                            HorizontalOptions="Center"
+                            LineBreakMode="WordWrap"
+                            Text="4. To see the certificates, go to Certificate page and pull down to refresh."
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" />
                 </CollectionView.ItemsLayout>

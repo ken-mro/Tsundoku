@@ -20,7 +20,7 @@ public partial class CameraPageViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var code = e.Results?.FirstOrDefault()?.Value;
+            var code = e.Results?.Where(c => IsbnUtility.IsIsbnCode(c.Value)).FirstOrDefault()?.Value;
             if (string.IsNullOrEmpty(code)) return;
             if (code.Length != 10 && code.Length != 13) return;
             string isbnCode = code;

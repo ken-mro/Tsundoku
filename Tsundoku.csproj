@@ -60,6 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\craftmincho.otf" />
 	  <None Remove="Resources\Images\award.png" />
 	  <None Remove="Resources\Images\award_plain.png" />
 	  <None Remove="Resources\Images\book_stack.png" />

@@ -17,7 +17,10 @@ public partial class CertificatePageViewModel : BaseViewModel
     }
 
     [ObservableProperty]
-    ObservableCollection<Book> _readBookCertificates;
+    [NotifyPropertyChangedFor(nameof(ReadBookCertificatesCount))]
+    ObservableCollection<Book> _readBookCertificates = [];
+
+    public string ReadBookCertificatesCount => ReadBookCertificates.Count.ToString();
 
     [ObservableProperty]
     bool _isRefreshing = false;

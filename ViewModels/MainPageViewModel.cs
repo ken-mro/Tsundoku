@@ -18,7 +18,7 @@ public partial class MainPageViewModel : BaseViewModel
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(BooksInStackCount))]
-    ObservableCollection<Book> booksInStack;
+    ObservableCollection<Book> _booksInStack = [];
 
     public string BooksInStackCount => BooksInStack.Count.ToString();
 

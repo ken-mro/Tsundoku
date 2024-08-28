@@ -62,10 +62,15 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="2*" />
                                             </Grid.ColumnDefinitions>
+                                            <Frame
+                                                Margin="5"
+                                                BackgroundColor="#4A291A"
+                                                CornerRadius="0"
+                                                HeightRequest="140" />
                                             <Image
                                                 Margin="10"
                                                 HeightRequest="150"
-                                                HorizontalOptions="End"
+                                                HorizontalOptions="Center"
                                                 VerticalOptions="Center">
                                                 <Image.Source>
                                                     <UriImageSource

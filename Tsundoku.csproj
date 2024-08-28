@@ -64,6 +64,7 @@
 	  <None Remove="Resources\Images\award_plain.png" />
 	  <None Remove="Resources\Images\book_stack.png" />
 	  <None Remove="Resources\Images\book_stack_plain.png" />
+	  <None Remove="Resources\Images\check_upsidedown.png" />
 	  <None Remove="Resources\Images\register.png" />
 	  <None Remove="Resources\Images\trash.png" />
 	</ItemGroup>

@@ -17,7 +17,10 @@ public partial class MainPageViewModel : BaseViewModel
     }
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(BooksInStackCount))]
     ObservableCollection<Book> booksInStack;
+
+    public string BooksInStackCount => BooksInStack.Count.ToString();
 
     [ObservableProperty]
     bool _isRefreshing = false;

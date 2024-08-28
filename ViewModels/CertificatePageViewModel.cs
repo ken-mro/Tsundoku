@@ -34,17 +34,16 @@ public partial class CertificatePageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private async Task DeleteBookAsync(Book book)
+    private async Task DeleteCertificateAsync(Book book)
     {
         try
         {
             IsBusy = true;
+            var proceeds = await Shell.Current.CurrentPage.DisplayAlert("Confirmation", "Are you sure to delete this certificate?", "Yes", "No");
+            if (!proceeds) return;
+
             var result = await _bookInfoRepository.DeleteBookInfoAsync(book.Id);
-            if (result > 0)
-            {
-                await Shell.Current.CurrentPage.DisplayAlert("Completed", "This book is deleted from the stack.", "OK");
-            }
-            else
+            if (result <= 0)
             {
                 throw new Exception("Failed to delete this book from the stack.");
             }

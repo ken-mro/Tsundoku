@@ -39,12 +39,12 @@ public partial class MainPageViewModel : BaseViewModel
         try
         {
             IsBusy = true;
+
+            var proceeds = await Shell.Current.CurrentPage.DisplayAlert("Confirmation", "Are you sure to remove this book from the stack?", "Yes", "No");
+            if (!proceeds) return;
+
             var result = await _bookInfoRepository.DeleteBookInfoAsync(book.Id);
-            if (result > 0)
-            {
-                await Shell.Current.CurrentPage.DisplayAlert("Completed", "This book is deleted from the stack.", "OK");
-            }
-            else
+            if (result <= 0)
             {
                 throw new Exception("Failed to delete this book from the stack.");
             }
@@ -67,15 +67,9 @@ public partial class MainPageViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var isCompleted = await Shell.Current.CurrentPage.DisplayAlert("Confirmation", "Have you read this book?", "Yes", "No");
-            if (!isCompleted) return;
 
             var result = await _bookInfoRepository.UpdateReadStatusAsync(book.Id, DateTime.Now, true);
-            if (result > 0)
-            {
-                await Shell.Current.CurrentPage.DisplayAlert("Completed", "Certificate of your completion of this book issued.", "OK");
-            }
-            else
+            if (result <= 0)
             {
                 throw new Exception("Failed to issue certificate of your completion of this book.");
             }

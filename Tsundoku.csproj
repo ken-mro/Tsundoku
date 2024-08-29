@@ -36,6 +36,8 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<EnableAssemblyILStripping>false</EnableAssemblyILStripping>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -93,12 +95,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Resources\AppResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\CertificatePageView.xaml.cs">
 	    <DependentUpon>CertificatePageView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\RegisterPageView.xaml.cs">
 	    <DependentUpon>RegisterPageView.xaml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\AppResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tsundoku.Views.RegisterPageView"
-             xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
-             Title="Register"
-             x:DataType="viewmodels:RegisterPageViewModel">
+<ContentPage
+    x:Class="Tsundoku.Views.RegisterPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
+    Title="Register"
+    x:DataType="viewmodels:RegisterPageViewModel">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -16,20 +17,20 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Entry 
+                <Entry
                     Placeholder="Type ISBN Code"
                     Text="{Binding Isbn}"
-                    VerticalOptions="EndAndExpand"/>
+                    VerticalOptions="EndAndExpand" />
                 <Button
                     Grid.Column="1"
-                    Text="Search"
-                    Command="{Binding SearchCommand}" />
+                    Command="{Binding SearchCommand}"
+                    Text="Search" />
             </Grid>
-        <Button
-            VerticalOptions="EndAndExpand"
-            Text="Camera"
-            Command="{Binding NavigateToCameraPageCommand}" />
-    </VerticalStackLayout>
-        
+            <Button
+                Command="{Binding NavigateToCameraPageCommand}"
+                Text="Scan"
+                VerticalOptions="EndAndExpand" />
+        </VerticalStackLayout>
+
     </Grid>
 </ContentPage>

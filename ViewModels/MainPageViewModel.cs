@@ -91,7 +91,7 @@ public partial class MainPageViewModel : BaseViewModel
         {
             IsBusy = true;
             var books = await _bookInfoRepository.GetAllBooksAsync();
-            BooksInStack = new ObservableCollection<Book>(books.Where(x => !x.Read).OrderBy(x =>x.Id).ToList());
+            BooksInStack = new ObservableCollection<Book>([..books.Where(x => !x.Read).OrderByDescending(x =>x.RegistrationDate)]);
         }
         catch (Exception ex)
         {

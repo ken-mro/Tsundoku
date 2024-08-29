@@ -127,14 +127,8 @@
                                             HeightRequest="110"
                                             HorizontalOptions="Center"
                                             Rotation="-90"
-                                            VerticalOptions="Center">
-                                            <Image.Source>
-                                                <UriImageSource
-                                                    CacheValidity="30"
-                                                    CachingEnabled="True"
-                                                    Uri="{Binding ImageUrl}" />
-                                            </Image.Source>
-                                        </Image>
+                                            Source="{Binding ImageSource}"
+                                            VerticalOptions="Center" />
                                         <BoxView
                                             Grid.Column="2"
                                             BackgroundColor="White"

@@ -62,13 +62,6 @@ public class BookInfoRepository : IBookInfoRepository
 
     private Book GetBook(BookInfo bookInfo)
     {
-        return new Book
-        {
-            Id = bookInfo.Id,
-            RegistrationDate = bookInfo.RegistrationDate,
-            ReadDate = bookInfo.ReadDate,
-            Isbn10 = bookInfo.Isbn10,
-            Read = bookInfo.Read
-        };
+        return new Book(bookInfo.Id, bookInfo.RegistrationDate, bookInfo.ReadDate, bookInfo.Isbn10, bookInfo.Read);
     }
 }

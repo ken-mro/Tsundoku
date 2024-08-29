@@ -37,8 +37,16 @@ public partial class RegisterPageViewModel : BaseViewModel
             {
                 isbnCode = IsbnUtility.GetIsbn10(Isbn);
             }
+
+            var bookCount = await _bookInfoRepository.GetAllBooksCountAsync();
             var vm = new ConfirmBookViewModel(isbnCode, _bookInfoRepository, _revenueCatBilling, _settingsPreferences);
             await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(vm));
+
+            var afterBookCount = await _bookInfoRepository.GetAllBooksCountAsync();
+            if (bookCount != afterBookCount)
+            {
+                Isbn = string.Empty;
+            }
         }
         catch(Exception ex)
         {

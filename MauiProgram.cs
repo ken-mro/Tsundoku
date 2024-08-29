@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using Maui.RevenueCat.InAppBilling;
 using Microsoft.Extensions.Logging;
 using Tsundoku.Repository;
 using Tsundoku.ViewModels;
@@ -22,6 +23,8 @@ namespace Tsundoku
                     fonts.AddFont("craftmincho.otf", "craftmincho");
                 })
                 .UseBarcodeReader();
+
+            builder.Services.AddRevenueCatBilling();
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();

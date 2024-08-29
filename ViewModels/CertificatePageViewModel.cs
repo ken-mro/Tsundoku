@@ -65,7 +65,7 @@ public partial class CertificatePageViewModel : BaseViewModel
         {
             IsBusy = true;
             var books = await _bookInfoRepository.GetAllBooksAsync();
-            ReadBookCertificates = new ObservableCollection<Book>(books.Where(x => x.Read).OrderBy(x => x.Id).ToList());
+            ReadBookCertificates = new ObservableCollection<Book>([.. books.Where(x => x.Read).OrderByDescending(x => x.ReadDate)]);
         }
         catch (Exception ex)
         {

@@ -26,7 +26,7 @@ public partial class RegisterPageViewModel : BaseViewModel
         {
             IsBusy = true;
             Isbn = Isbn.Replace("-", "");
-            if (IsbnUtility.IsIsbnCode(Isbn)) return;
+            if (!IsbnUtility.IsIsbnCode(Isbn)) return;
             string isbnCode = Isbn;
             if (Isbn.Length == 13 )
             {

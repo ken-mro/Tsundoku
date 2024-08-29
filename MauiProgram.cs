@@ -26,6 +26,9 @@ namespace Tsundoku
 
             builder.Services.AddRevenueCatBilling();
 
+            builder.Services.AddSingleton(Preferences.Default);
+            builder.Services.AddSingleton<SettingsPreferences>();
+
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();
 

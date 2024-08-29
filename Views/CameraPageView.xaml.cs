@@ -1,4 +1,4 @@
-using CommunityToolkit.Maui.Views;
+using Maui.RevenueCat.InAppBilling.Services;
 using Tsundoku.Repository;
 using Tsundoku.ViewModels;
 using ZXing.Net.Maui;
@@ -8,10 +8,10 @@ namespace Tsundoku.Views;
 public partial class CameraPageView : ContentPage
 {
     CameraPageViewModel _vm;
-    public CameraPageView(IBookInfoRepository bookInfoRepository)
+    public CameraPageView(IBookInfoRepository bookInfoRepository, IRevenueCatBilling revenueCatBilling,SettingsPreferences settingsPreferences)
     {
         InitializeComponent();
-        BindingContext = _vm = new CameraPageViewModel(bookInfoRepository);
+        BindingContext = _vm = new CameraPageViewModel(bookInfoRepository, revenueCatBilling, settingsPreferences);
         cameraBarcodeReaderView.Options = new BarcodeReaderOptions
         {
             Formats = BarcodeFormats.OneDimensional,

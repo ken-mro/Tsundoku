@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui.Views;
+using Maui.RevenueCat.InAppBilling.Services;
 using Tsundoku.Repository;
 using Tsundoku.Utility;
 using Tsundoku.Views;
@@ -9,9 +10,13 @@ namespace Tsundoku.ViewModels;
 public partial class CameraPageViewModel : BaseViewModel
 {
     private IBookInfoRepository _bookInfoRepository;
-    public CameraPageViewModel(IBookInfoRepository bookInfoRepository)
+    private IRevenueCatBilling _revenueCatBilling;
+    private SettingsPreferences _settingsPreferences;
+    public CameraPageViewModel(IBookInfoRepository bookInfoRepository, IRevenueCatBilling revenueCatBilling, SettingsPreferences settingsPreferences)
     {
         _bookInfoRepository = bookInfoRepository;
+        _revenueCatBilling = revenueCatBilling;
+        _settingsPreferences = settingsPreferences;
     }
 
     public async Task ShowConfirmationPopup(object sender, BarcodeDetectionEventArgs e)
@@ -31,7 +36,8 @@ public partial class CameraPageViewModel : BaseViewModel
 
             await MainThread.InvokeOnMainThreadAsync(async () =>
             {
-                await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode, _bookInfoRepository)));
+                var vm = new ConfirmBookViewModel(isbnCode, _bookInfoRepository, _revenueCatBilling, _settingsPreferences);
+                await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(vm));
             });
         }
         catch (Exception ex)

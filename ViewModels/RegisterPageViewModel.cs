@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Maui.RevenueCat.InAppBilling.Services;
 using Tsundoku.Repository;
 using Tsundoku.Utility;
 using Tsundoku.Views;
@@ -10,9 +11,13 @@ namespace Tsundoku.ViewModels;
 public partial class RegisterPageViewModel : BaseViewModel
 {
     private IBookInfoRepository _bookInfoRepository;
-    public RegisterPageViewModel(IBookInfoRepository bookInfoRepository)
+    private IRevenueCatBilling _revenueCatBilling;
+    private SettingsPreferences _settingsPreferences;
+    public RegisterPageViewModel(IBookInfoRepository bookInfoRepository, IRevenueCatBilling revenueCatBilling, SettingsPreferences settingsPreferences)
     {
         _bookInfoRepository = bookInfoRepository;
+        _revenueCatBilling = revenueCatBilling;
+        _settingsPreferences = settingsPreferences;
     }
 
     [ObservableProperty]
@@ -32,8 +37,8 @@ public partial class RegisterPageViewModel : BaseViewModel
             {
                 isbnCode = IsbnUtility.GetIsbn10(Isbn);
             }
-
-            await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(new ConfirmBookViewModel(isbnCode, _bookInfoRepository)));
+            var vm = new ConfirmBookViewModel(isbnCode, _bookInfoRepository, _revenueCatBilling, _settingsPreferences);
+            await Shell.Current.CurrentPage.ShowPopupAsync(new ConfirmBookView(vm));
         }
         catch(Exception ex)
         {

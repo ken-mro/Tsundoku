@@ -46,6 +46,12 @@ public class BookInfoRepository : IBookInfoRepository
         return [.. bookInfoList.ConvertAll(GetBook)];
     }
 
+    public async Task<int> GetAllBooksCountAsync()
+    {
+        await Init();
+        return await _conn.Table<BookInfo>().CountAsync();
+    }
+
     public async Task<int> UpdateReadStatusAsync(int Id, DateTime readDateTime, bool read)
     {
         if (Id == 0) return 0;

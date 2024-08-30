@@ -85,7 +85,7 @@
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=ReadBookCommand}"
                                     CommandParameter="{Binding .}"
                                     IconImageSource="check.png"
-                                    Text="Read" />
+                                    Text="{x:Static strings:AppResources.Read}" />
                             </SwipeView.RightItems>
                             <SwipeView.LeftItems>
                                 <SwipeItem

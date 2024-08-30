@@ -169,4 +169,7 @@
   <data name="BooksInStack" xml:space="preserve">
     <value>book(s) in stack</value>
   </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
 </root>

@@ -118,106 +118,105 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MonthlySubFor" xml:space="preserve">
-    <value>Monthly subscription for</value>
+    <value>月々</value>
   </data>
   <data name="PayWallTitle" xml:space="preserve">
-    <value>Stack more than 10 books!</value>
+    <value>11冊以上積読しよう!</value>
   </data>
   <data name="PayWallSubTitle" xml:space="preserve">
-    <value>Not subscribing is highly recomended</value>
-    <comment>Not subscribing is highly recommended.</comment>
+    <value>サブスクリプションしないことを強くお勧めします。</value>
   </data>
   <data name="LoadOfferings" xml:space="preserve">
-    <value>Load offerings</value>
+    <value>プランを読み込む</value>
   </data>
   <data name="Subscription" xml:space="preserve">
-    <value>Subscription</value>
+    <value>サブスクリプション:</value>
   </data>
   <data name="HowTo" xml:space="preserve">
-    <value>How to use this app</value>
+    <value>このアプリの使い方</value>
   </data>
   <data name="Instruction1" xml:space="preserve">
-    <value>1.To stack books, go to "Register" and register books.</value>
+    <value>1.「登録」ページで本を登録し、積読する。</value>
   </data>
   <data name="Instruction2" xml:space="preserve">
-    <value>2. To see the stacked books, back to "Stack" and pull down to refresh.</value>
+    <value>2. 積読した本を見る際は,「積読」ページで画面を引っ張って更新する。</value>
   </data>
   <data name="Instruction3" xml:space="preserve">
-    <value>3. When you've read a book, swiping left the book and tap the 'Read' icon in it. The certificate of your completion of this book is issued.</value>
+    <value>3. 本を読み終わったら、その本を左にスワイプし、”読了”をタップします。読了証明書が発行されます。</value>
   </data>
   <data name="Instruction4" xml:space="preserve">
-    <value>4. To see the certificates, go to "Certificate" and pull down to refresh.</value>
+    <value>4. 読了証明書を確認する際は、「証明書」ページで画面を引っ張って更新する。</value>
   </data>
   <data name="TypeIsbn" xml:space="preserve">
-    <value>Type ISBN Code</value>
+    <value>ISBNコードを入力してください。</value>
   </data>
   <data name="Stack" xml:space="preserve">
-    <value>Stack</value>
+    <value>積読</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>削除</value>
   </data>
   <data name="ReadDate" xml:space="preserve">
-    <value>Read date:</value>
+    <value>読了日:</value>
   </data>
   <data name="Certificates" xml:space="preserve">
-    <value>Certificates</value>
+    <value>証明書</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register</value>
+    <value>登録</value>
   </data>
   <data name="BooksInStack" xml:space="preserve">
-    <value>book(s) in stack</value>
+    <value>札　積読中</value>
   </data>
   <data name="Certificate(s)" xml:space="preserve">
-    <value>Certificate(s)</value>
+    <value>枚</value>
   </data>
   <data name="Completed" xml:space="preserve">
-    <value>Completed</value>
+    <value>完了</value>
   </data>
   <data name="Confirmation" xml:space="preserve">
-    <value>Confirmation</value>
+    <value>確認</value>
   </data>
   <data name="DeleteBook" xml:space="preserve">
-    <value>Are you sure to remove this book from the stack?</value>
+    <value>この本の積読をやめますか？</value>
   </data>
   <data name="DeleteCert" xml:space="preserve">
-    <value>Are you sure to delete this certificate?</value>
+    <value>証明書を削除しますか？</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
+    <value>エラー</value>
   </data>
   <data name="FailToDeleteBook" xml:space="preserve">
-    <value>Failed to delete this book from the stack.</value>
+    <value>この本の積読をやめることができませんでした。</value>
   </data>
   <data name="FailToIssueCert" xml:space="preserve">
-    <value>Failed to issue certificate of your completion of this book.</value>
+    <value>読了証明書の発行に失敗しました。</value>
   </data>
   <data name="ISBNReader" xml:space="preserve">
-    <value>ISBN Code Reader</value>
+    <value>ISBN コードリーダー</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>いいえ</value>
   </data>
   <data name="NonIsbn13" xml:space="preserve">
-    <value>The code doesn't contain 13 characters.</value>
+    <value>コードが13桁ではありません。</value>
   </data>
   <data name="Read" xml:space="preserve">
-    <value>Read</value>
+    <value>読了</value>
   </data>
   <data name="Scan" xml:space="preserve">
-    <value>Scan</value>
+    <value>スキャン</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Search</value>
+    <value>検索</value>
   </data>
   <data name="StackedBook" xml:space="preserve">
-    <value>The book stacked successfully</value>
+    <value>積読に成功しました。</value>
   </data>
   <data name="StackedBookFailed" xml:space="preserve">
-    <value>Failed to stack the book</value>
+    <value>積読に失敗しました。</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>はい</value>
   </data>
 </root>

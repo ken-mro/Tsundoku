@@ -6,7 +6,7 @@
     xmlns:models="clr-namespace:Tsundoku.Models;assembly=Tsundoku"
     xmlns:strings="clr-namespace:Tsundoku.Resources"
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
-    Title="Certificates"
+    Title="{x:Static strings:AppResources.Certificates}"
     x:DataType="viewmodels:CertificatePageViewModel">
     <Grid Padding="5" RowSpacing="10">
         <Grid.RowDefinitions>
@@ -17,7 +17,7 @@
             Grid.Row="0"
             FontSize="Large"
             HorizontalOptions="Center"
-            Text="{Binding ReadBookCertificatesCount, StringFormat='{}{0} certificate(s)'}"
+            Text="{Binding ReadBookCertificatesCountString}"
             VerticalOptions="Center" />
         <RefreshView
             Grid.Row="1"

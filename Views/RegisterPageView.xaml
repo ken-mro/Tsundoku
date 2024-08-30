@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:strings="clr-namespace:Tsundoku.Resources"
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
-    Title="Register"
+    Title="{x:Static strings:AppResources.Register}"
     x:DataType="viewmodels:RegisterPageViewModel">
     <Grid Margin="5">
         <Grid.RowDefinitions>
@@ -25,11 +25,11 @@
                 <Button
                     Grid.Column="1"
                     Command="{Binding SearchCommand}"
-                    Text="Search" />
+                    Text="{x:Static strings:AppResources.Search}" />
             </Grid>
             <Button
                 Command="{Binding NavigateToCameraPageCommand}"
-                Text="Scan"
+                Text="{x:Static strings:AppResources.Scan}"
                 VerticalOptions="EndAndExpand" />
         </VerticalStackLayout>
 

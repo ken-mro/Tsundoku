@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maui.RevenueCat.InAppBilling.Services;
 using Tsundoku.Repository;
+using Tsundoku.Resources;
 using Tsundoku.Views;
 
 namespace Tsundoku.ViewModels;
@@ -51,16 +52,16 @@ public partial class ConfirmBookViewModel : BaseViewModel
             var result = await _bookInfoRepository.AddBookInfoAsync(_isbn10);
             if (result > 0)
             {
-                await Shell.Current.CurrentPage.DisplayAlert("Completed", "The book stacked successfully", "OK");
+                await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Completed}", $"{AppResources.StackedBook}", "OK");
             }
             else
             {
-                throw new Exception("Failed to stack the book");
+                throw new Exception($"{AppResources.StackedBookFailed}");
             }
         }
         catch (Exception ex)
         {
-            await Shell.Current.CurrentPage.DisplayAlert("Error", ex.Message, "OK");
+            await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {

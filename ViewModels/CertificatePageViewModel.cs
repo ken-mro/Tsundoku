@@ -3,6 +3,7 @@ using Tsundoku.Repository;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
 using Tsundoku.Models;
+using Tsundoku.Resources;
 
 namespace Tsundoku.ViewModels;
 
@@ -17,10 +18,10 @@ public partial class CertificatePageViewModel : BaseViewModel
     }
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(ReadBookCertificatesCount))]
+    [NotifyPropertyChangedFor(nameof(ReadBookCertificatesCountString))]
     ObservableCollection<Book> _readBookCertificates = [];
 
-    public string ReadBookCertificatesCount => ReadBookCertificates.Count.ToString();
+    public string ReadBookCertificatesCountString => $"{ReadBookCertificates.Count.ToString()} {AppResources.Certificate_s_}";
 
     [ObservableProperty]
     bool _isRefreshing = false;
@@ -39,20 +40,20 @@ public partial class CertificatePageViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var proceeds = await Shell.Current.CurrentPage.DisplayAlert("Confirmation", "Are you sure to delete this certificate?", "Yes", "No");
+            var proceeds = await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Confirmation}", $"{AppResources.DeleteCert}", $"{AppResources.Yes}", $"{AppResources.No}");
             if (!proceeds) return;
 
             var result = await _bookInfoRepository.DeleteBookInfoAsync(book.Id);
             if (result <= 0)
             {
-                throw new Exception("Failed to delete this book from the stack.");
+                throw new Exception($"{AppResources.FailToDeleteBook}");
             }
 
             await Init();
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"Error", ex.Message, "OK");
+            await Shell.Current.DisplayAlert($"{AppResources.Equals}", ex.Message, "OK");
         }
         finally
         {
@@ -69,7 +70,7 @@ public partial class CertificatePageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {

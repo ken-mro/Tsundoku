@@ -41,20 +41,20 @@ public partial class MainPageViewModel : BaseViewModel
         {
             IsBusy = true;
 
-            var proceeds = await Shell.Current.CurrentPage.DisplayAlert("Confirmation", "Are you sure to remove this book from the stack?", "Yes", "No");
+            var proceeds = await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Confirmation}", $"{AppResources.DeleteBook}", $"{AppResources.Yes}", $"{AppResources.No}");
             if (!proceeds) return;
 
             var result = await _bookInfoRepository.DeleteBookInfoAsync(book.Id);
             if (result <= 0)
             {
-                throw new Exception("Failed to delete this book from the stack.");
+                throw new Exception($"{AppResources.FailToDeleteBook}");
             }
 
             await Init();
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"Error", ex.Message, "OK");
+            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {
@@ -72,13 +72,13 @@ public partial class MainPageViewModel : BaseViewModel
             var result = await _bookInfoRepository.UpdateReadStatusAsync(book.Id, DateTime.Now, true);
             if (result <= 0)
             {
-                throw new Exception("Failed to issue certificate of your completion of this book.");
+                throw new Exception($"{AppResources.FailToIssueCert}");
             }
             await Init();
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"Error", ex.Message, "OK");
+            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {
@@ -96,7 +96,7 @@ public partial class MainPageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {

@@ -6,7 +6,7 @@
     xmlns:models="clr-namespace:Tsundoku.Models"
     xmlns:strings="clr-namespace:Tsundoku.Resources"
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
-    Title="Stack"
+    Title="{x:Static strings:AppResources.Stack}"
     x:DataType="viewmodels:MainPageViewModel">
 
     <Grid Padding="5" RowSpacing="10">

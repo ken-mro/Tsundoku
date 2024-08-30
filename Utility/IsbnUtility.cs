@@ -1,4 +1,6 @@
-﻿namespace Tsundoku.Utility;
+﻿using Tsundoku.Resources;
+
+namespace Tsundoku.Utility;
 
 public static class IsbnUtility
 {
@@ -41,10 +43,10 @@ public static class IsbnUtility
     private static string ConvertIsbn13ToIsbn10(string isbn13)
     {
         if (String.IsNullOrEmpty(isbn13))
-            throw new ArgumentNullException("isbn13");
+            throw new ArgumentNullException();
         isbn13 = isbn13.Replace("-", "").Replace(" ", "");
         if (isbn13.Length != 13)
-            throw new ArgumentException("The ISBN doesn't contain 13 characters.", "isbn13");
+            throw new ArgumentException($"{AppResources.NonIsbn13}");
 
         String isbn10 = isbn13.Substring(3, 9);
         int checksum = 0;

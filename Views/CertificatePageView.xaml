@@ -76,7 +76,6 @@
                                                         Uri="{Binding SmallImageUrl}" />
                                                 </Image.Source>
                                             </Image>
-
                                             <VerticalStackLayout
                                                 Grid.Column="1"
                                                 HorizontalOptions="Center"

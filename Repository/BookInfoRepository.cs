@@ -43,7 +43,12 @@ public class BookInfoRepository : IBookInfoRepository
     {
         await Init();
         var bookInfoList = await _conn.Table<BookInfo>().ToListAsync();
-        return [.. bookInfoList.ConvertAll(GetBook)];
+        var books = new List<Book>();
+        foreach (var bookInfo in bookInfoList)
+        {
+            books.Add(await GetBook(bookInfo));
+        }
+        return books;
     }
 
     public async Task<int> GetAllBooksCountAsync()
@@ -60,8 +65,8 @@ public class BookInfoRepository : IBookInfoRepository
         return result;
     }
 
-    private Book GetBook(BookInfo bookInfo)
+    private async Task<Book> GetBook(BookInfo bookInfo)
     {
-        return new Book(bookInfo.Id, bookInfo.RegistrationDate, bookInfo.ReadDate, bookInfo.Isbn10, bookInfo.Read);
+        return await Book.BookFactory(bookInfo.Id, bookInfo.RegistrationDate, bookInfo.ReadDate, bookInfo.Isbn10, bookInfo.Read);
     }
 }

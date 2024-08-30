@@ -35,9 +35,9 @@ public class Book
     public ImageSource ImageSource { get; private set; }
     public bool Read { get; set; } = false;
 
-    public async Task LoadImageAsync(string imageUrl)
+    public async Task LoadImageAsync()
     {
-        var resizedImage = await DownloadAndResizeImageAsync(imageUrl, 150, 150);
+        var resizedImage = await DownloadAndResizeImageAsync(ImageUrl, 100, 100);
         var stream = ConvertBitmapToStream(resizedImage);
         ImageSource = ImageSource.FromStream(() => stream);
     }

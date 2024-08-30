@@ -143,7 +143,7 @@
     <value>2. To see the stacked books, back to "Stack" and pull down to refresh.</value>
   </data>
   <data name="Instruction3" xml:space="preserve">
-    <value>3. When you've read a book, swiping left the book and tap the 'Read' icon in it. The certificate of your completion of this book is issued.</value>
+    <value>3. When you've read a book, swiping left the book and tap the tick icon in it. The certificate of your completion of this book is issued.</value>
   </data>
   <data name="Instruction4" xml:space="preserve">
     <value>4. To see the certificates, go to "Certificate" and pull down to refresh.</value>
@@ -153,9 +153,6 @@
   </data>
   <data name="Stack" xml:space="preserve">
     <value>Stack</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
   </data>
   <data name="ReadDate" xml:space="preserve">
     <value>Read date:</value>
@@ -201,9 +198,6 @@
   </data>
   <data name="NonIsbn13" xml:space="preserve">
     <value>The code doesn't contain 13 characters.</value>
-  </data>
-  <data name="Read" xml:space="preserve">
-    <value>Read</value>
   </data>
   <data name="Scan" xml:space="preserve">
     <value>Scan</value>

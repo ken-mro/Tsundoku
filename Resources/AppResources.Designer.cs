@@ -106,15 +106,6 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete.
-        /// </summary>
-        internal static string Delete {
-            get {
-                return ResourceManager.GetString("Delete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Are you sure to remove this book from the stack?.
         /// </summary>
         internal static string DeleteBook {
@@ -187,7 +178,7 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3. When you&apos;ve read a book, swiping left the book and tap the &apos;Read&apos; icon in it. The certificate of your completion of this book is issued..
+        ///   Looks up a localized string similar to 3. When you&apos;ve read a book, swiping left the book and tap the tick icon in it. The certificate of your completion of this book is issued..
         /// </summary>
         internal static string Instruction3 {
             get {
@@ -264,15 +255,6 @@ namespace Tsundoku.Resources {
         internal static string PayWallTitle {
             get {
                 return ResourceManager.GetString("PayWallTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Read.
-        /// </summary>
-        internal static string Read {
-            get {
-                return ResourceManager.GetString("Read", resourceCulture);
             }
         }
         

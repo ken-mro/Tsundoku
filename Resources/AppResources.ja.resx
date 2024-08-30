@@ -142,7 +142,7 @@
     <value>2. 積読した本を見る際は,「積読」ページで画面を引っ張って更新する。</value>
   </data>
   <data name="Instruction3" xml:space="preserve">
-    <value>3. 本を読み終わったら、その本を左にスワイプし、”読了”をタップします。読了証明書が発行されます。</value>
+    <value>3. 本を読み終わったら、その本を左にスワイプし、チェックをタップします。読了証明書が発行されます。</value>
   </data>
   <data name="Instruction4" xml:space="preserve">
     <value>4. 読了証明書を確認する際は、「証明書」ページで画面を引っ張って更新する。</value>
@@ -152,9 +152,6 @@
   </data>
   <data name="Stack" xml:space="preserve">
     <value>積読</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>削除</value>
   </data>
   <data name="ReadDate" xml:space="preserve">
     <value>読了日:</value>
@@ -200,9 +197,6 @@
   </data>
   <data name="NonIsbn13" xml:space="preserve">
     <value>コードが13桁ではありません。</value>
-  </data>
-  <data name="Read" xml:space="preserve">
-    <value>読了</value>
   </data>
   <data name="Scan" xml:space="preserve">
     <value>スキャン</value>

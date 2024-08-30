@@ -141,7 +141,7 @@
                                                         HorizontalOptions="Start"
                                                         LineBreakMode="TailTruncation"
                                                         LineHeight="1"
-                                                        Text="{x:Static strings:AppResources.Delete}"
+                                                        Text="{x:Static strings:AppResources.ReadDate}"
                                                         TextColor="Black"
                                                         VerticalOptions="Center" />
                                                     <Label

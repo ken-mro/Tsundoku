@@ -51,7 +51,7 @@
                             FontSize="Medium"
                             HorizontalOptions="Start"
                             LineBreakMode="WordWrap"
-                            Text="2. To see the stack books, back to Stack page and pull up to refresh."
+                            Text="2. To see the stack books, back to Stack page and pull down to refresh."
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label

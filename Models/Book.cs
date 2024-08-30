@@ -18,5 +18,6 @@ public class Book
     public string ReadDateString => ReadDate.ToString("dd MMM yyyy");
     public required string Isbn10 { get; init; }
     public string ImageUrl => $"https://images.amazon.com/images/P/{Isbn10}.jpg";
+    public string SmallImageUrl => $"https://images.amazon.com/images/P/{Isbn10}.01.TZZZZZZZ";
     public required bool Read { get; set; } = false;
 }

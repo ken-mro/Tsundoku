@@ -132,7 +132,7 @@
                                                 <UriImageSource
                                                     CacheValidity="30"
                                                     CachingEnabled="True"
-                                                    Uri="{Binding ImageUrl}" />
+                                                    Uri="{Binding SmallImageUrl}" />
                                             </Image.Source>
                                         </Image>
                                         <BoxView

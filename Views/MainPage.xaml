@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:Tsundoku.Models"
+    xmlns:strings="clr-namespace:Tsundoku.Resources"
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
     Title="Stack"
     x:DataType="viewmodels:MainPageViewModel">
@@ -17,7 +18,7 @@
             Grid.Row="0"
             FontSize="Large"
             HorizontalOptions="Center"
-            Text="{Binding BooksInStackCount, StringFormat='{}{0} book(s) in the stack'}"
+            Text="{Binding BooksInStackCountString}"
             VerticalOptions="Center" />
         <RefreshView
             Grid.Row="1"
@@ -35,7 +36,7 @@
                             FontFamily="craftmincho"
                             FontSize="Large"
                             HorizontalOptions="Center"
-                            Text="How to use this app"
+                            Text="{x:Static strings:AppResources.HowTo}"
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label
@@ -43,7 +44,7 @@
                             FontSize="Medium"
                             HorizontalOptions="Start"
                             LineBreakMode="WordWrap"
-                            Text="1.To stack books, go to Register page and register books."
+                            Text="{x:Static strings:AppResources.Instruction1}"
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label
@@ -51,7 +52,7 @@
                             FontSize="Medium"
                             HorizontalOptions="Start"
                             LineBreakMode="WordWrap"
-                            Text="2. To see the stack books, back to Stack page and pull down to refresh."
+                            Text="{x:Static strings:AppResources.Instruction2}"
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label
@@ -59,7 +60,7 @@
                             FontSize="Medium"
                             HorizontalOptions="Start"
                             LineBreakMode="WordWrap"
-                            Text="3. When you've read a book, swiping left the book and tap the tick icon in it. The certificate of your completion of this book is issued."
+                            Text="{x:Static strings:AppResources.Instruction3}"
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label
@@ -67,7 +68,7 @@
                             FontSize="Medium"
                             HorizontalOptions="Center"
                             LineBreakMode="WordWrap"
-                            Text="4. To see the certificates, go to Certificate page and pull down to refresh."
+                            Text="{x:Static strings:AppResources.Instruction4}"
                             TextColor="Black"
                             VerticalOptions="Center" />
                     </VerticalStackLayout>

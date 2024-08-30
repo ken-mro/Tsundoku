@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using Tsundoku.Models;
 using Tsundoku.Repository;
+using Tsundoku.Resources;
 
 namespace Tsundoku.ViewModels;
 
@@ -17,10 +18,10 @@ public partial class MainPageViewModel : BaseViewModel
     }
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(BooksInStackCount))]
+    [NotifyPropertyChangedFor(nameof(BooksInStackCountString))]
     ObservableCollection<Book> _booksInStack = [];
 
-    public string BooksInStackCount => BooksInStack.Count.ToString();
+    public string BooksInStackCountString => $"{BooksInStack.Count.ToString()} {AppResources.BooksInStack}";
 
     [ObservableProperty]
     bool _isRefreshing = false;

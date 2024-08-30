@@ -3,6 +3,7 @@
     x:Class="Tsundoku.Views.RegisterPageView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:strings="clr-namespace:Tsundoku.Resources"
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
     Title="Register"
     x:DataType="viewmodels:RegisterPageViewModel">
@@ -18,7 +19,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Entry
-                    Placeholder="Type ISBN Code"
+                    Placeholder="{x:Static strings:AppResources.TypeIsbn}"
                     Text="{Binding Isbn}"
                     VerticalOptions="EndAndExpand" />
                 <Button

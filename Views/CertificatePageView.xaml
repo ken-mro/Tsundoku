@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:Tsundoku.Models;assembly=Tsundoku"
+    xmlns:strings="clr-namespace:Tsundoku.Resources"
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
     Title="Certificates"
     x:DataType="viewmodels:CertificatePageViewModel">
@@ -39,7 +40,7 @@
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CertificatePageViewModel}}, Path=DeleteCertificateCommand}"
                                     CommandParameter="{Binding .}"
                                     IconImageSource="trash.png"
-                                    Text="Delete" />
+                                    Text="{x:Static strings:AppResources.Delete}" />
                             </SwipeView.LeftItems>
                             <Frame
                                 Margin="2"
@@ -140,7 +141,7 @@
                                                         HorizontalOptions="Start"
                                                         LineBreakMode="TailTruncation"
                                                         LineHeight="1"
-                                                        Text="Read date:"
+                                                        Text="{x:Static strings:AppResources.Delete}"
                                                         TextColor="Black"
                                                         VerticalOptions="Center" />
                                                     <Label

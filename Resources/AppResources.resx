@@ -133,4 +133,40 @@
   <data name="Subscription" xml:space="preserve">
     <value>Subscription</value>
   </data>
+  <data name="HowTo" xml:space="preserve">
+    <value>How to use this app</value>
+  </data>
+  <data name="Instruction1" xml:space="preserve">
+    <value>1.To stack books, go to Register page and register books.</value>
+  </data>
+  <data name="Instruction2" xml:space="preserve">
+    <value>2. To see the stack books, back to Stack page and pull down to refresh.</value>
+  </data>
+  <data name="Instruction3" xml:space="preserve">
+    <value>3. When you've read a book, swiping left the book and tap the tick icon in it. The certificate of your completion of this book is issued.</value>
+  </data>
+  <data name="Instruction4" xml:space="preserve">
+    <value>4. To see the certificates, go to Certificate page and pull down to refresh.</value>
+  </data>
+  <data name="TypeIsbn" xml:space="preserve">
+    <value>Type ISBN Code</value>
+  </data>
+  <data name="Stack" xml:space="preserve">
+    <value>Stack</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ReadDate" xml:space="preserve">
+    <value>Read date:</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certificates</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="BooksInStack" xml:space="preserve">
+    <value>book(s) in stack</value>
+  </data>
 </root>

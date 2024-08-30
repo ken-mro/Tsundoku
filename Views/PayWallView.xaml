@@ -43,7 +43,6 @@
                 Command="{Binding LoadOfferingsCommand}"
                 HorizontalOptions="Fill"
                 IsVisible="{Binding AreOfferingsLoaded, Converter={toolkit:InvertedBoolConverter}}"
-                SemanticProperties.Hint="Counts the number of times you click"
                 Text="{x:Static strings:AppResources.LoadOfferings}" />
 
             <Label

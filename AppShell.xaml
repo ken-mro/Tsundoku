@@ -3,26 +3,27 @@
     x:Class="Tsundoku.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:strings="clr-namespace:Tsundoku.Resources"
     xmlns:views="clr-namespace:Tsundoku.Views"
     Title="Tsundoku"
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
-        <Tab Title="Certificates" Icon="award_plain.png">
+        <Tab Title="{x:Static strings:AppResources.Certificates}" Icon="award_plain.png">
             <ShellContent
-                Title="Certificates"
+                Title="{x:Static strings:AppResources.Certificates}"
                 ContentTemplate="{DataTemplate views:CertificatePageView}"
                 Route="CertificatePage" />
         </Tab>
-        <Tab Title="Stack" Icon="book_stack_plain.png">
+        <Tab Title="{x:Static strings:AppResources.Stack}" Icon="book_stack_plain.png">
             <ShellContent
-                Title="Stack"
+                Title="{x:Static strings:AppResources.Stack}"
                 ContentTemplate="{DataTemplate views:MainPage}"
                 Route="MainPage" />
         </Tab>
-        <Tab Title="Register" Icon="register.png">
+        <Tab Title="{x:Static strings:AppResources.Register}" Icon="register.png">
             <ShellContent
-                Title="Register"
+                Title="{x:Static strings:AppResources.Register}"
                 ContentTemplate="{DataTemplate views:RegisterPageView}"
                 Route="RegisterPage" />
         </Tab>

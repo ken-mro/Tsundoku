@@ -61,6 +61,78 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to book(s) in stack.
+        /// </summary>
+        internal static string BooksInStack {
+            get {
+                return ResourceManager.GetString("BooksInStack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certificates.
+        /// </summary>
+        internal static string Certificates {
+            get {
+                return ResourceManager.GetString("Certificates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to use this app.
+        /// </summary>
+        internal static string HowTo {
+            get {
+                return ResourceManager.GetString("HowTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.To stack books, go to Register page and register books..
+        /// </summary>
+        internal static string Instruction1 {
+            get {
+                return ResourceManager.GetString("Instruction1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2. To see the stack books, back to Stack page and pull down to refresh..
+        /// </summary>
+        internal static string Instruction2 {
+            get {
+                return ResourceManager.GetString("Instruction2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3. When you&apos;ve read a book, swiping left the book and tap the tick icon in it. The certificate of your completion of this book is issued..
+        /// </summary>
+        internal static string Instruction3 {
+            get {
+                return ResourceManager.GetString("Instruction3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4. To see the certificates, go to Certificate page and pull down to refresh..
+        /// </summary>
+        internal static string Instruction4 {
+            get {
+                return ResourceManager.GetString("Instruction4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load offerings.
         /// </summary>
         internal static string LoadOfferings {
@@ -97,11 +169,47 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read date:.
+        /// </summary>
+        internal static string ReadDate {
+            get {
+                return ResourceManager.GetString("ReadDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        internal static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stack.
+        /// </summary>
+        internal static string Stack {
+            get {
+                return ResourceManager.GetString("Stack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Subscription.
         /// </summary>
         internal static string Subscription {
             get {
                 return ResourceManager.GetString("Subscription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type ISBN Code.
+        /// </summary>
+        internal static string TypeIsbn {
+            get {
+                return ResourceManager.GetString("TypeIsbn", resourceCulture);
             }
         }
     }

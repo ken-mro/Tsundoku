@@ -29,7 +29,7 @@
                 ItemsSource="{Binding ReadBookCertificates}"
                 VerticalOptions="FillAndExpand">
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" />
+                    <GridItemsLayout Orientation="Vertical" Span="{Binding GridItemSpan}" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:Book}">

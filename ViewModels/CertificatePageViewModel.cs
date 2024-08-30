@@ -26,6 +26,9 @@ public partial class CertificatePageViewModel : BaseViewModel
     [ObservableProperty]
     bool _isRefreshing = false;
 
+    [ObservableProperty]
+    int _gridItemSpan = 1;
+
     [RelayCommand]
     public async Task RefreshAsync()
     {

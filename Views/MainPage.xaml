@@ -74,7 +74,7 @@
                     </VerticalStackLayout>
                 </CollectionView.EmptyView>
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" />
+                    <GridItemsLayout Orientation="Vertical" Span="{Binding GridItemSpan}" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:Book}">

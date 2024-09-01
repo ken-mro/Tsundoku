@@ -14,6 +14,7 @@ public partial class CertificatePageView : ContentPage
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
-        _vm.GridItemSpan = Math.Max((int)width / 400, 2);
+        var numMoreThan1 = Math.Max((int)width / 300, 1);
+        _vm.GridItemSpan = Math.Min(numMoreThan1, 2);
     }
 }

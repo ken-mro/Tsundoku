@@ -163,7 +163,7 @@
     <value>登録</value>
   </data>
   <data name="BooksInStack" xml:space="preserve">
-    <value>札　積読中</value>
+    <value>冊　積読中</value>
   </data>
   <data name="Certificate(s)" xml:space="preserve">
     <value>枚</value>

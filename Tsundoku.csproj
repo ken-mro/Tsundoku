@@ -80,17 +80,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.3" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="Kebechet.Maui.RevenueCat.InAppBilling" Version="4.4.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.80" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+		<PackageReference Include="Kebechet.Maui.RevenueCat.InAppBilling" Version="4.5.2" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.91" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.91" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.9" />
-		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.9" />
-		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.9" />
-		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.9" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10" />
+		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.10" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.10" />
+		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.10" />
 		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
 	</ItemGroup>
 

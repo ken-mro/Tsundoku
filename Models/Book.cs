@@ -3,12 +3,12 @@
 public class Book
 {
     private IEnumerable<Color> _colors = new List<Color>
-    {
-        Color.FromHex("#E29401"),
-        Color.FromHex("#639A2C"),
-        Color.FromHex("#BC161C"),
-        Color.FromHex("#1D4F77"),
-    };
+       {
+           Color.FromArgb("#E29401"),
+           Color.FromArgb("#639A2C"),
+           Color.FromArgb("#BC161C"),
+           Color.FromArgb("#1D4F77"),
+       };
 
     public required int Id { get; init; }
     public required DateTime RegistrationDate { get; init; }

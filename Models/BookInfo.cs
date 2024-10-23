@@ -13,7 +13,7 @@ public class BookInfo
     public DateTime ReadDate { get; set; }
 
     [MaxLength(10)]
-    public string Isbn10 { get; init; }
+    public string Isbn10 { get; init; } = string.Empty;
 
     public bool Read { get; set; }
 }

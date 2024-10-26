@@ -2,7 +2,7 @@ using Tsundoku.Utility;
 
 namespace Tsundoku.xUnitTest
 {
-    public class IsbnUtilityTests
+    public class AsinUtilityTests
     {
         [Theory]
         [InlineData("https://www.amazon.co.jp/Harry-Potter-Philosophers-Stone-English-ebook/dp/B019PIOJYU/ref=sr_1_5?dib=eyJ2IjoiMSJ9.unjJe6ynanBuiIduQ0xcKHbi_EPJ9vx8FLElMWl_gKhynDWNqUpMMBh7SzR5EFEZcZzm2KIudFwa2HfMHvgUMfIDXd1yiMsd_x1GRfsf1GmqQU8yWIdAH9OLdJGfXhxCbYd_AUSiBv2FnuzLbbJh0wXV-BA7AeSXucFLOj5Rj_XjBBIBZvS5EXmxAhFfgYWQJvnIWiiVzjl8gFtWjHqWSTNZF2MRDhUxS-lhjHbxCnN1VoDtTBTmIqkzoybAnyXhMf0oRr_JoAHva4penhHKoT_mKZtZtcI5Bq13MxyEzMo.SptSehla_z_3AAh7xjbfIr0z-T83B9cLcS5wwH_5cVo&dib_tag=se&keywords=harry+potter&qid=1729690506&sr=8-5", "B019PIOJYU")]

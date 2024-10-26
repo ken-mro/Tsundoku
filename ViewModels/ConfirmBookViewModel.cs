@@ -29,7 +29,7 @@ public partial class ConfirmBookViewModel : BaseViewModel
 
 	string _isbn10;
 
-    public Popup Popup;
+    public Popup Popup = default!;
 
     [RelayCommand]
     async Task StackBookAsync()

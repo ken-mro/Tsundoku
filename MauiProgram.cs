@@ -10,6 +10,8 @@ namespace Tsundoku
 {
     public static class MauiProgram
     {
+        public static string SharedData { get; set; } = string.Empty;
+
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();

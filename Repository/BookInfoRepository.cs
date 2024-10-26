@@ -6,7 +6,7 @@ namespace Tsundoku.Repository;
 public class BookInfoRepository : IBookInfoRepository
 {
     private string _dbPath = Constants.DataBasePath;
-    private SQLiteAsyncConnection _conn;
+    private SQLiteAsyncConnection _conn = default!;
 
     public BookInfoRepository()
     {

@@ -27,7 +27,7 @@
                 x:Name="collectionView"
                 Background="AntiqueWhite"
                 ItemsSource="{Binding ReadBookCertificates}"
-                VerticalOptions="FillAndExpand">
+                VerticalOptions="Fill">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="{Binding GridItemSpan}" />
                 </CollectionView.ItemsLayout>
@@ -37,16 +37,14 @@
                             <SwipeView.LeftItems>
                                 <SwipeItem
                                     BackgroundColor="OrangeRed"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CertificatePageViewModel}}, Path=DeleteCertificateCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CertificatePageViewModel}}, x:DataType=viewmodels:CertificatePageViewModel, Path=DeleteCertificateCommand}"
                                     CommandParameter="{Binding .}"
                                     IconImageSource="trash.png" />
                             </SwipeView.LeftItems>
-                            <Frame
+                            <Border
                                 Margin="2"
                                 Padding="5"
                                 BackgroundColor="Navy"
-                                BorderColor="Transparent"
-                                CornerRadius="0"
                                 HeightRequest="200">
                                 <Border
                                     BackgroundColor="Gold"
@@ -81,20 +79,20 @@
                                                 VerticalOptions="Center">
                                                 <Image
                                                     HeightRequest="25"
-                                                    HorizontalOptions="CenterAndExpand"
+                                                    HorizontalOptions="Center"
                                                     Source="award.png"
                                                     VerticalOptions="Center" />
                                                 <Label
                                                     FontAttributes="Bold"
                                                     FontSize="Large"
-                                                    HorizontalOptions="CenterAndExpand"
+                                                    HorizontalOptions="Center"
                                                     Text="CERTIFICATE"
                                                     TextColor="Black"
                                                     VerticalOptions="Center" />
                                                 <Label
                                                     FontAttributes="Bold"
                                                     FontSize="Micro"
-                                                    HorizontalOptions="CenterAndExpand"
+                                                    HorizontalOptions="Center"
                                                     Text="OF ACHIEVEMENT"
                                                     TextColor="Black"
                                                     VerticalOptions="Center" />
@@ -158,7 +156,7 @@
                                         </Grid>
                                     </Border>
                                 </Border>
-                            </Frame>
+                            </Border>
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -21,7 +21,7 @@
                 <Entry
                     Placeholder="{x:Static strings:AppResources.TypeIsbn}"
                     Text="{Binding Isbn}"
-                    VerticalOptions="EndAndExpand" />
+                    VerticalOptions="End" />
                 <Button
                     Grid.Column="1"
                     Command="{Binding SearchCommand}"
@@ -30,7 +30,7 @@
             <Button
                 Command="{Binding NavigateToCameraPageCommand}"
                 Text="{x:Static strings:AppResources.Scan}"
-                VerticalOptions="EndAndExpand" />
+                VerticalOptions="End" />
         </VerticalStackLayout>
 
     </Grid>

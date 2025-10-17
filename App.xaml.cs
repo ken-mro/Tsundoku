@@ -20,9 +20,11 @@ public partial class App : Application
         _revenueCat = revenueCatBilling;
         _bookInfoRepository = bookInfoRepository;
         _settingsPreferences = settings;
+    }
 
-
-        MainPage = new AppShell();
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        return new Window(new AppShell());
     }
 
     protected async override void OnStart()

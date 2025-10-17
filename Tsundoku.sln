@@ -22,7 +22,6 @@ Global
 		{0F9EC3A2-1B9E-4B79-A3D6-1EC10C3021B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F9EC3A2-1B9E-4B79-A3D6-1EC10C3021B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F9EC3A2-1B9E-4B79-A3D6-1EC10C3021B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F9EC3A2-1B9E-4B79-A3D6-1EC10C3021B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

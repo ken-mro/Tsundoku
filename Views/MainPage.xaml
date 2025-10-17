@@ -28,7 +28,7 @@
                 x:Name="collectionView"
                 Background="AntiqueWhite"
                 ItemsSource="{Binding BooksInStack}"
-                VerticalOptions="FillAndExpand">
+                VerticalOptions="Fill">
                 <CollectionView.EmptyView>
                     <VerticalStackLayout Padding="5" Spacing="10">
                         <Label
@@ -82,22 +82,19 @@
                             <SwipeView.RightItems>
                                 <SwipeItem
                                     BackgroundColor="LightGreen"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=ReadBookCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, x:DataType=viewmodels:MainPageViewModel, Path=ReadBookCommand}"
                                     CommandParameter="{Binding .}"
                                     IconImageSource="check.png" />
                             </SwipeView.RightItems>
                             <SwipeView.LeftItems>
                                 <SwipeItem
                                     BackgroundColor="OrangeRed"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, Path=DeleteBookCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, x:DataType=viewmodels:MainPageViewModel, Path=DeleteBookCommand}"
                                     CommandParameter="{Binding .}"
                                     IconImageSource="trash.png" />
                             </SwipeView.LeftItems>
 
-                            <Frame
-                                Padding="0"
-                                BackgroundColor="Transparent"
-                                BorderColor="Transparent">
+                            <Border Padding="0" BackgroundColor="Transparent">
                                 <Border
                                     BackgroundColor="{Binding Color}"
                                     Stroke="Black"
@@ -146,10 +143,10 @@
                                             Rotation="-90"
                                             Text="{Binding Isbn10}"
                                             TextColor="Black"
-                                            VerticalOptions="CenterAndExpand" />
+                                            VerticalOptions="Center" />
                                     </Grid>
                                 </Border>
-                            </Frame>
+                            </Border>
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -89,7 +89,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.3" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="11.2.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="Kebechet.Maui.RevenueCat.InAppBilling" Version="5.3.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.110" />
@@ -100,7 +100,7 @@
 		<PackageReference Include="SQLitePCLRaw.core" Version="3.0.2" />
 		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="3.0.2" />
 		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="3.0.2" />
-		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
+		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.5.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -153,6 +153,18 @@
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
 	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
+	    <Version>2.9.1</Version>
+	  </PackageReference>
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Process">
+	    <Version>2.9.1</Version>
+	  </PackageReference>
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
+	    <Version>2.9.1</Version>
+	  </PackageReference>
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx">
+	    <Version>2.9.1</Version>
+	  </PackageReference>
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState.Android">
 	    <Version>2.9.1</Version>
 	  </PackageReference>
 	</ItemGroup>

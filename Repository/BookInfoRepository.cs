@@ -21,15 +21,19 @@ public class BookInfoRepository : IBookInfoRepository
         await _conn.CreateTableAsync<BookInfo>();
     }
 
-    public async Task<int> AddBookInfoAsync(string isbn10)
+    public async Task<int> AddBookInfoAsync(string isbn10, bool isRead)
     {
         await Init();
+        var dateTimeNow = DateTime.Now;
+
         var bookInfo = new BookInfo
         {
-            RegistrationDate = DateTime.Now,
+            RegistrationDate = dateTimeNow,
             Isbn10 = isbn10,
-            Read = false
+            Read = isRead,
+            ReadDate = isRead ? dateTimeNow : default
         };
+
         return await _conn.InsertAsync(bookInfo);
     }
 

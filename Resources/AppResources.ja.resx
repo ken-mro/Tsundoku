@@ -213,4 +213,10 @@
   <data name="Yes" xml:space="preserve">
     <value>はい</value>
   </data>
+  <data name="Read" xml:space="preserve">
+    <value>読了</value>
+  </data>
+  <data name="BookMarkedAsRead" xml:space="preserve">
+    <value>読了証明書が発行されました。</value>
+  </data>
 </root>

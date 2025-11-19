@@ -30,10 +30,16 @@
             HorizontalOptions="Fill"
             VerticalOptions="Center"
             Color="Gray" />
-        <Button
+        <HorizontalStackLayout
             Grid.Row="2"
-            Command="{Binding StackBookCommand}"
             HorizontalOptions="Center"
-            Text="{x:Static strings:AppResources.Stack}" />
+            Spacing="10">
+            <Button
+                Command="{Binding ReadBookCommand}"
+                Text="{x:Static strings:AppResources.Read}" />
+            <Button
+                Command="{Binding StackBookCommand}"
+                Text="{x:Static strings:AppResources.Stack}" />
+        </HorizontalStackLayout>
     </Grid>
 </toolkit:Popup>

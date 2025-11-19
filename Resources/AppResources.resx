@@ -214,4 +214,13 @@
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="BookMarkedAsRead" xml:space="preserve">
+    <value>Certificate of your completion of this book issued successfully</value>
+  </data>
+  <data name="ReadBookFailed" xml:space="preserve">
+    <value>Issue certificate failed</value>
+  </data>
 </root>

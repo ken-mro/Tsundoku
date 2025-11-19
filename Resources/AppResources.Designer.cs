@@ -19,7 +19,7 @@ namespace Tsundoku.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class AppResources {
@@ -57,6 +57,15 @@ namespace Tsundoku.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certificate of your completion of this book issued successfully.
+        /// </summary>
+        internal static string BookMarkedAsRead {
+            get {
+                return ResourceManager.GetString("BookMarkedAsRead", resourceCulture);
             }
         }
         
@@ -255,6 +264,24 @@ namespace Tsundoku.Resources {
         internal static string PayWallTitle {
             get {
                 return ResourceManager.GetString("PayWallTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read.
+        /// </summary>
+        internal static string Read {
+            get {
+                return ResourceManager.GetString("Read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue certificate failed.
+        /// </summary>
+        internal static string ReadBookFailed {
+            get {
+                return ResourceManager.GetString("ReadBookFailed", resourceCulture);
             }
         }
         

@@ -32,6 +32,34 @@ public partial class ConfirmBookViewModel : BaseViewModel
     public Popup Popup = default!;
 
     [RelayCommand]
+    async Task ReadBookAsync()
+    {
+        if (IsBusy)
+            return;
+        try
+        {
+            IsBusy = true;
+
+            var result = await _bookInfoRepository.AddBookInfoAsync(_isbn10, isRead: true);
+            if (result <= 0)
+            {
+                throw new Exception($"{AppResources.ReadBookFailed}");
+            }
+
+            await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Completed}", $"{AppResources.BookMarkedAsRead}", "OK");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+            await Popup.CloseAsync();
+        }
+    }
+
+    [RelayCommand]
     async Task StackBookAsync()
     {
         if (IsBusy)
@@ -49,7 +77,7 @@ public partial class ConfirmBookViewModel : BaseViewModel
                 if (!_settingsPreferences.GetIsSubscribed()) return;
             }
 
-            var result = await _bookInfoRepository.AddBookInfoAsync(_isbn10);
+            var result = await _bookInfoRepository.AddBookInfoAsync(_isbn10, false);
             if (result > 0)
             {
                 await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Completed}", $"{AppResources.StackedBook}", "OK");

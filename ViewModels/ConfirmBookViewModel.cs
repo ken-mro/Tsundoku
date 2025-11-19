@@ -43,7 +43,7 @@ public partial class ConfirmBookViewModel : BaseViewModel
             var result = await _bookInfoRepository.AddBookInfoAsync(_isbn10, isRead: true);
             if (result <= 0)
             {
-                throw new Exception($"{AppResources.StackedBookFailed}");
+                throw new Exception($"{AppResources.ReadBookFailed}");
             }
 
             await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Completed}", $"{AppResources.BookMarkedAsRead}", "OK");

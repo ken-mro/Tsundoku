@@ -277,6 +277,15 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issue certificate failed.
+        /// </summary>
+        internal static string ReadBookFailed {
+            get {
+                return ResourceManager.GetString("ReadBookFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read date:.
         /// </summary>
         internal static string ReadDate {

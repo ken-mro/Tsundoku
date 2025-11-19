@@ -219,4 +219,7 @@
   <data name="BookMarkedAsRead" xml:space="preserve">
     <value>読了証明書が発行されました。</value>
   </data>
+  <data name="ReadBookFailed" xml:space="preserve">
+    <value>証明書の発行に失敗しました。</value>
+  </data>
 </root>

@@ -13,3 +13,4 @@
         <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="Center" />
     </Grid>
 </ContentPage>
+

@@ -16,13 +16,13 @@ namespace Tsundoku
             TryToSaveSharedUrl(Intent!);
         }
 
-        protected override void OnNewIntent(Intent intent)
+        protected override void OnNewIntent(Intent? intent)
         {
             base.OnNewIntent(intent);
             TryToSaveSharedUrl(intent);
         }
 
-        private static void TryToSaveSharedUrl(Intent intent)
+        private static void TryToSaveSharedUrl(Intent? intent)
         {
             if (intent?.Action == Intent.ActionSend && intent.Type == "text/plain")
             {

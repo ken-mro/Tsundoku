@@ -43,7 +43,7 @@ public partial class CertificatePageViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var proceeds = await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Confirmation}", $"{AppResources.DeleteCert}", $"{AppResources.Yes}", $"{AppResources.No}");
+            var proceeds = await Shell.Current.CurrentPage.DisplayAlertAsync($"{AppResources.Confirmation}", $"{AppResources.DeleteCert}", $"{AppResources.Yes}", $"{AppResources.No}");
             if (!proceeds) return;
 
             var result = await _bookInfoRepository.DeleteBookInfoAsync(book.Id);
@@ -56,7 +56,7 @@ public partial class CertificatePageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"{AppResources.Equals}", ex.Message, "OK");
+            await Shell.Current.DisplayAlertAsync($"{AppResources.Equals}", ex.Message, "OK");
         }
         finally
         {
@@ -73,7 +73,7 @@ public partial class CertificatePageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+            await Shell.Current.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {

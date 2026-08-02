@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using Tsundoku.Models;
@@ -44,7 +44,7 @@ public partial class MainPageViewModel : BaseViewModel
         {
             IsBusy = true;
 
-            var proceeds = await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Confirmation}", $"{AppResources.DeleteBook}", $"{AppResources.Yes}", $"{AppResources.No}");
+            var proceeds = await Shell.Current.CurrentPage.DisplayAlertAsync($"{AppResources.Confirmation}", $"{AppResources.DeleteBook}", $"{AppResources.Yes}", $"{AppResources.No}");
             if (!proceeds) return;
 
             var result = await _bookInfoRepository.DeleteBookInfoAsync(book.Id);
@@ -57,7 +57,7 @@ public partial class MainPageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+            await Shell.Current.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {
@@ -81,7 +81,7 @@ public partial class MainPageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+            await Shell.Current.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {
@@ -99,7 +99,7 @@ public partial class MainPageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+            await Shell.Current.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {

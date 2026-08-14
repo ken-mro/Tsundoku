@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net10.0;net10.0-android36.0;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<!-- Keep the Android TFM unversioned: Visual Studio's deploy/debug tooling fails with a
+		     versioned TFM, and net10.0-android already binds Android 16 (API 36), so the built
+		     manifest still gets targetSdkVersion=36 as required by Google Play. -->
+		<TargetFrameworks>net10.0;net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net10.0-tizen</TargetFrameworks> -->
 

@@ -1,7 +1,10 @@
+using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maui.RevenueCat.InAppBilling.Services;
+using Microsoft.Maui.Controls.Shapes;
 using Tsundoku.Repository;
 using Tsundoku.Resources;
 using Tsundoku.Views;
@@ -46,11 +49,11 @@ public partial class ConfirmBookViewModel : BaseViewModel
                 throw new Exception($"{AppResources.ReadBookFailed}");
             }
 
-            await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Completed}", $"{AppResources.BookMarkedAsRead}", "OK");
+            await Shell.Current.CurrentPage.DisplayAlertAsync($"{AppResources.Completed}", $"{AppResources.BookMarkedAsRead}", "OK");
         }
         catch (Exception ex)
         {
-            await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+            await Shell.Current.CurrentPage.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {
@@ -80,7 +83,7 @@ public partial class ConfirmBookViewModel : BaseViewModel
             var result = await _bookInfoRepository.AddBookInfoAsync(_isbn10, false);
             if (result > 0)
             {
-                await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Completed}", $"{AppResources.StackedBook}", "OK");
+                await Shell.Current.CurrentPage.DisplayAlertAsync($"{AppResources.Completed}", $"{AppResources.StackedBook}", "OK");
             }
             else
             {
@@ -89,7 +92,7 @@ public partial class ConfirmBookViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.CurrentPage.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+            await Shell.Current.CurrentPage.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {
@@ -105,7 +108,16 @@ public partial class ConfirmBookViewModel : BaseViewModel
         _settingsPreferences.SetIsSubscribed(isSubscribed);
         if (!_settingsPreferences.GetIsSubscribed())
         {
-            await Shell.Current.CurrentPage.ShowPopupAsync(new PayWallView(new PayWallViewModel(_revenueCat, _settingsPreferences)));
+            await Shell.Current.CurrentPage.ShowPopupAsync(
+                new PayWallView(new PayWallViewModel(_revenueCat, _settingsPreferences)),
+                new PopupOptions
+                {
+                    Shape = new RoundRectangle
+                    {
+                        CornerRadius = new CornerRadius(20, 20, 0, 0),
+                        StrokeThickness = 0
+                    }
+                });
         }
     }
 }

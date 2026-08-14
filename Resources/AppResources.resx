@@ -190,6 +190,9 @@
   <data name="FailToIssueCert" xml:space="preserve">
     <value>Failed to issue certificate of your completion of this book.</value>
   </data>
+  <data name="FailToLoadOfferings" xml:space="preserve">
+    <value>Failed to load offerings. Please try again later.</value>
+  </data>
   <data name="ISBNReader" xml:space="preserve">
     <value>ISBN Code Reader</value>
   </data>

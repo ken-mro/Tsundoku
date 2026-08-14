@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="Tsundoku.Views.CameraPageView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:strings="clr-namespace:Tsundoku.Resources"
-    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
-    Title="{x:Static strings:AppResources.ISBNReader}">
-    <StackLayout>
-        <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
-        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
-    </StackLayout>
+    xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+    Title="{x:Static strings:AppResources.ISBNReader}"
+    x:DataType="viewmodels:CameraPageViewModel">
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" />
+    </Grid>
 </ContentPage>

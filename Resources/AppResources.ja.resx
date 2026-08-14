@@ -189,6 +189,9 @@
   <data name="FailToIssueCert" xml:space="preserve">
     <value>読了証明書の発行に失敗しました。</value>
   </data>
+  <data name="FailToLoadOfferings" xml:space="preserve">
+    <value>サブスクリプション情報の取得に失敗しました。時間をおいて再度お試しください。</value>
+  </data>
   <data name="ISBNReader" xml:space="preserve">
     <value>ISBN コードリーダー</value>
   </data>

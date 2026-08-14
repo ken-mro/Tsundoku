@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Maui.Extensions;
+using CommunityToolkit.Maui.Views;
 using Maui.RevenueCat.InAppBilling.Services;
 using Tsundoku.Repository;
 using Tsundoku.Resources;
@@ -71,7 +72,7 @@ public partial class App : Application
         {
             await MainThread.InvokeOnMainThreadAsync(async () =>
             {
-                await Shell.Current.DisplayAlert($"{AppResources.Error}", ex.Message, "OK");
+                await Shell.Current.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
             });
             
         }

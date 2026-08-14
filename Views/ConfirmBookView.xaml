@@ -7,7 +7,8 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
     x:DataType="viewmodels:ConfirmBookViewModel"
-    Size="330,450">
+    HeightRequest="450"
+    WidthRequest="330">
     <Grid
         Margin="5"
         Padding="10"

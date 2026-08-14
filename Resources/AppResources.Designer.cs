@@ -158,7 +158,16 @@ namespace Tsundoku.Resources {
                 return ResourceManager.GetString("FailToIssueCert", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to load offerings. Please try again later..
+        /// </summary>
+        internal static string FailToLoadOfferings {
+            get {
+                return ResourceManager.GetString("FailToLoadOfferings", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to How to use this app.
         /// </summary>

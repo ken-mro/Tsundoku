@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Maui.Views;
 using Maui.RevenueCat.InAppBilling.Services;
 using Tsundoku.Repository;
@@ -43,7 +44,7 @@ public partial class CameraPageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.CurrentPage.DisplayAlert(AppResources.Error, ex.Message, "OK");
+            await Shell.Current.CurrentPage.DisplayAlertAsync(AppResources.Error, ex.Message, "OK");
         }
         finally
         {

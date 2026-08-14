@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net9.0;net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net10.0;net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net10.0-tizen</TargetFrameworks> -->
 
 		<!-- Note for MacCatalyst:
 		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
@@ -12,7 +12,7 @@
 		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
 
-		<OutputType Condition="'$(TargetFramework)' != 'net9.0'">Exe</OutputType>
+		<OutputType Condition="'$(TargetFramework)' != 'net10.0'">Exe</OutputType>
 		<RootNamespace>Tsundoku</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
@@ -38,6 +38,11 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
 		<EnableAssemblyILStripping>false</EnableAssemblyILStripping>
+
+		<!-- net10.0 is the platform-neutral head of the single project: it is not an Exe and only
+		     exists so Tsundoku.xUnitTest can reference the shared code. CreateMauiApp is never
+		     invoked from it, so CA1416 on platform-annotated MAUI APIs is not actionable here. -->
+		<NoWarn Condition="'$(TargetFramework)' == 'net10.0'">$(NoWarn);CA1416</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -84,23 +89,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiSplashScreen Include="Resources\Splash\splash.png" />
-	  <MauiSplashScreen Include="Resources\Splash\splash.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="11.2.0" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-		<PackageReference Include="Kebechet.Maui.RevenueCat.InAppBilling" Version="5.3.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.110" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.110" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.9" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
-		<PackageReference Include="SQLitePCLRaw.core" Version="3.0.2" />
-		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="3.0.2" />
-		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="3.0.2" />
-		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.5.2" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="15.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+		<PackageReference Include="Kebechet.Maui.RevenueCat.InAppBilling" Version="7.4.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="10.0.90" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.10" />
+		<!-- sqlite-net-pcl 1.11+ pulls the full SQLitePCLRaw 3.x stack (core, provider.e_sqlite3
+		     and the SourceGear.sqlite3 natives) itself, so the legacy 2.x bundle_green /
+		     lib.e_sqlite3 packages are no longer referenced. -->
+		<PackageReference Include="sqlite-net-pcl" Version="1.11.285" />
+		<PackageReference Include="SQLitePCLRaw.core" Version="3.0.4" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="3.0.4" />
+		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="3.0.4" />
+		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.10.3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -151,22 +153,12 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
-	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-	    <Version>2.9.1</Version>
-	  </PackageReference>
-	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Process">
-	    <Version>2.9.1</Version>
-	  </PackageReference>
-	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
-	    <Version>2.9.1</Version>
-	  </PackageReference>
-	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx">
-	    <Version>2.9.1</Version>
-	  </PackageReference>
-	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState.Android">
-	    <Version>2.9.1</Version>
-	  </PackageReference>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0-android'">
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.10.0.2" />
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Process" Version="2.10.0.2" />
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.10.0.2" />
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx" Version="2.10.0.2" />
+	  <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState.Android" Version="2.10.0.2" />
 	</ItemGroup>
 
 </Project>

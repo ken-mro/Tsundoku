@@ -1,6 +1,7 @@
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Maui.RevenueCat.InAppBilling.Enums;
 using Maui.RevenueCat.InAppBilling.Models;
 using Maui.RevenueCat.InAppBilling.Services;
 using System.Collections.ObjectModel;
@@ -36,34 +37,61 @@ public partial class PayWallViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private void LoadOfferings()
-    {
-        Task.Run(async () =>
-        {
-            var loadedOfferings = await _revenueCatBilling.GetOfferings();
-            LoadedOfferings = new ObservableCollection<OfferingDto>(loadedOfferings);
-
-            MonthlySubscription = LoadedOfferings
-                .SelectMany(x => x.AvailablePackages)
-                .First(x => x.Identifier == DefaultPackageIdentifier.Monthly);
-        });
-    }
-
-    [RelayCommand]
-    private void BuyItem(PackageDto packageDto)
+    private async Task LoadOfferingsAsync()
     {
         if (IsBusy) return;
         IsBusy = true;
+        try
+        {
+            var loadedOfferings = await _revenueCatBilling.GetOfferings();
+            var monthlySubscription = loadedOfferings
+                .SelectMany(x => x.AvailablePackages)
+                .FirstOrDefault(x => x.Identifier == DefaultPackageIdentifier.Monthly);
 
-        Task.Run(async () =>
+            if (monthlySubscription is null)
+            {
+                await Shell.Current.CurrentPage.DisplayAlertAsync(AppResources.Error, AppResources.FailToLoadOfferings, "OK");
+                return;
+            }
+
+            MonthlySubscription = monthlySubscription;
+            LoadedOfferings = new ObservableCollection<OfferingDto>(loadedOfferings);
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.CurrentPage.DisplayAlertAsync(AppResources.Error, ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
+
+    [RelayCommand]
+    private async Task BuyItemAsync(PackageDto packageDto)
+    {
+        if (IsBusy) return;
+        IsBusy = true;
+        try
         {
             var purchaseResult = await _revenueCatBilling.PurchaseProduct(packageDto);
             _settingsPreferences.SetIsSubscribed(purchaseResult.IsSuccess);
-            IsBusy = false;
             if (purchaseResult.IsSuccess)
             {
                 await Popup.CloseAsync();
             }
-        });
+            else if (purchaseResult.ErrorStatus is not PurchaseErrorStatus.PurchaseCancelledError)
+            {
+                await Shell.Current.CurrentPage.DisplayAlertAsync(AppResources.Error, purchaseResult.ErrorStatus?.ToString() ?? AppResources.FailToLoadOfferings, "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.CurrentPage.DisplayAlertAsync(AppResources.Error, ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 }

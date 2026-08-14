@@ -1,8 +1,10 @@
+using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maui.RevenueCat.InAppBilling.Services;
+using Microsoft.Maui.Controls.Shapes;
 using Tsundoku.Repository;
 using Tsundoku.Resources;
 using Tsundoku.Views;
@@ -106,7 +108,16 @@ public partial class ConfirmBookViewModel : BaseViewModel
         _settingsPreferences.SetIsSubscribed(isSubscribed);
         if (!_settingsPreferences.GetIsSubscribed())
         {
-            await Shell.Current.CurrentPage.ShowPopupAsync(new PayWallView(new PayWallViewModel(_revenueCat, _settingsPreferences)));
+            await Shell.Current.CurrentPage.ShowPopupAsync(
+                new PayWallView(new PayWallViewModel(_revenueCat, _settingsPreferences)),
+                new PopupOptions
+                {
+                    Shape = new RoundRectangle
+                    {
+                        CornerRadius = new CornerRadius(20, 20, 0, 0),
+                        StrokeThickness = 0
+                    }
+                });
         }
     }
 }

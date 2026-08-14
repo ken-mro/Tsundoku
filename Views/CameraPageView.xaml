@@ -8,9 +8,8 @@
     xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
     Title="{x:Static strings:AppResources.ISBNReader}"
     x:DataType="viewmodels:CameraPageViewModel">
-    <Grid RowDefinitions="*,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" Grid.Row="0" BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-        <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="Center" />
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <zxing:CameraBarcodeReaderView x:Name="cameraBarcodeReaderView" BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" />
     </Grid>
 </ContentPage>
-

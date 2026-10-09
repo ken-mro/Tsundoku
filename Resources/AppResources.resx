@@ -124,7 +124,7 @@
     <value>Stack more than 10 books!</value>
   </data>
   <data name="PayWallSubTitle" xml:space="preserve">
-    <value>Not subscribing is highly recomended</value>
+    <value>Not subscribing is highly recommended</value>
     <comment>Not subscribing is highly recommended.</comment>
   </data>
   <data name="LoadOfferings" xml:space="preserve">

@@ -268,7 +268,7 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not subscribing is highly recomended.
+        ///   Looks up a localized string similar to Not subscribing is highly recommended.
         /// </summary>
         internal static string PayWallSubTitle {
             get {

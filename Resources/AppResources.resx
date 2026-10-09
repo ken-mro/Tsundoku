@@ -202,6 +202,9 @@
   <data name="NonIsbn13" xml:space="preserve">
     <value>The code doesn't contain 13 characters.</value>
   </data>
+  <data name="InvalidIsbn" xml:space="preserve">
+    <value>Please enter a valid ISBN (10 or 13 digits).</value>
+  </data>
   <data name="Scan" xml:space="preserve">
     <value>Scan</value>
   </data>

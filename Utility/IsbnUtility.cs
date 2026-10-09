@@ -13,10 +13,11 @@ public static class IsbnUtility
 
         if (fixedCode.Length == 13)
         {
-            return IsIsbn13Prefix(fixedCode);
+            return fixedCode.All(char.IsAsciiDigit) && IsIsbn13Prefix(fixedCode);
         }
 
-        return true;
+        // ISBN-10: nine digits followed by a digit or an "X" check digit.
+        return fixedCode[..9].All(char.IsAsciiDigit) && (char.IsAsciiDigit(fixedCode[9]) || fixedCode[9] is 'X' or 'x');
     }
     private static bool IsIsbn13Prefix(string code)
     {
@@ -28,7 +29,7 @@ public static class IsbnUtility
         var fixedCode = code.Replace("-", "").Replace(" ", "");
         if (fixedCode.Length == 10)
         {
-            return code;
+            return fixedCode.ToUpperInvariant();
         }
         else if (fixedCode.Length == 13)
         {

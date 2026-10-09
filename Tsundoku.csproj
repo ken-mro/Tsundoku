@@ -74,6 +74,9 @@
 	  <MauiCss Remove="Tsundoku.xUnitTest\**" />
 	  <MauiXaml Remove="Tsundoku.xUnitTest\**" />
 	  <None Remove="Tsundoku.xUnitTest\**" />
+	  <!-- Verification harness (tools/verify) is a separate project. -->
+	  <Compile Remove="tools\**" />
+	  <None Remove="tools\**" />
 	</ItemGroup>
 
 	<ItemGroup>

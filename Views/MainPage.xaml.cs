@@ -11,6 +11,13 @@ public partial class MainPage : ContentPage
         BindingContext = _vm = vm;
     }
 
+    // Books are added or marked as read from other tabs and popups, so reload on every visit.
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await _vm.Init();
+    }
+
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);

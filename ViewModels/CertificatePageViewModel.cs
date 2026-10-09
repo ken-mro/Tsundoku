@@ -66,7 +66,7 @@ public partial class CertificatePageViewModel : BaseViewModel
             IsBusy = false;
         }
     }
-    private async Task Init()
+    public async Task Init()
     {
         try
         {

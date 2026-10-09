@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Maui.RevenueCat.InAppBilling.Services;
 using Tsundoku.Repository;
+using Tsundoku.Resources;
 using Tsundoku.Utility;
 using Tsundoku.Views;
 
@@ -31,13 +32,13 @@ public partial class RegisterPageViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            Isbn = Isbn.Replace("-", "");
-            if (!IsbnUtility.IsIsbnCode(Isbn)) return;
-            string isbnCode = Isbn;
-            if (Isbn.Length == 13 )
+            Isbn = Isbn.Replace("-", "").Replace(" ", "");
+            if (!IsbnUtility.IsIsbnCode(Isbn))
             {
-                isbnCode = IsbnUtility.GetIsbn10(Isbn);
+                await Shell.Current.CurrentPage.DisplayAlertAsync(AppResources.Error, AppResources.InvalidIsbn, "OK");
+                return;
             }
+            string isbnCode = IsbnUtility.GetIsbn10(Isbn);
 
             var bookCount = await _bookInfoRepository.GetAllBooksCountAsync();
             var vm = new ConfirmBookViewModel(isbnCode, _bookInfoRepository, _revenueCatBilling, _settingsPreferences);
@@ -51,7 +52,7 @@ public partial class RegisterPageViewModel : BaseViewModel
         }
         catch(Exception ex)
         {
-            Console.WriteLine(ex);
+            await Shell.Current.CurrentPage.DisplayAlertAsync(AppResources.Error, ex.Message, "OK");
         }
         finally
         {

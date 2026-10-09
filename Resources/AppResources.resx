@@ -124,7 +124,7 @@
     <value>Stack more than 10 books!</value>
   </data>
   <data name="PayWallSubTitle" xml:space="preserve">
-    <value>Not subscribing is highly recomended</value>
+    <value>Not subscribing is highly recommended</value>
     <comment>Not subscribing is highly recommended.</comment>
   </data>
   <data name="LoadOfferings" xml:space="preserve">
@@ -201,6 +201,9 @@
   </data>
   <data name="NonIsbn13" xml:space="preserve">
     <value>The code doesn't contain 13 characters.</value>
+  </data>
+  <data name="InvalidIsbn" xml:space="preserve">
+    <value>Please enter a valid ISBN (10 or 13 digits).</value>
   </data>
   <data name="Scan" xml:space="preserve">
     <value>Scan</value>

@@ -250,6 +250,15 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid ISBN (10 or 13 digits)..
+        /// </summary>
+        internal static string InvalidIsbn {
+            get {
+                return ResourceManager.GetString("InvalidIsbn", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to The code doesn&apos;t contain 13 characters..
         /// </summary>
         internal static string NonIsbn13 {
@@ -259,7 +268,7 @@ namespace Tsundoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not subscribing is highly recomended.
+        ///   Looks up a localized string similar to Not subscribing is highly recommended.
         /// </summary>
         internal static string PayWallSubTitle {
             get {

@@ -201,6 +201,9 @@
   <data name="NonIsbn13" xml:space="preserve">
     <value>コードが13桁ではありません。</value>
   </data>
+  <data name="InvalidIsbn" xml:space="preserve">
+    <value>正しいISBN（10桁または13桁）を入力してください。</value>
+  </data>
   <data name="Scan" xml:space="preserve">
     <value>スキャン</value>
   </data>

@@ -97,7 +97,7 @@ public partial class MainPageViewModel : BaseViewModel
         }
     }
 
-    private async Task Init()
+    public async Task Init()
     {
         try
         {

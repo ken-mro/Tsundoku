@@ -383,5 +383,32 @@ namespace Tsundoku.Resources {
                 return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oldest book stacked {0} days ago.
+        /// </summary>
+        internal static string OldestInStack {
+            get {
+                return ResourceManager.GetString("OldestInStack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stacked {0}.
+        /// </summary>
+        internal static string StackedOn {
+            get {
+                return ResourceManager.GetString("StackedOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to days.
+        /// </summary>
+        internal static string Days {
+            get {
+                return ResourceManager.GetString("Days", resourceCulture);
+            }
+        }
     }
 }

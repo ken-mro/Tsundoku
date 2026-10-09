@@ -226,4 +226,13 @@
   <data name="ReadBookFailed" xml:space="preserve">
     <value>Issue certificate failed</value>
   </data>
+  <data name="OldestInStack" xml:space="preserve">
+    <value>Oldest book stacked {0} days ago</value>
+  </data>
+  <data name="StackedOn" xml:space="preserve">
+    <value>Stacked {0}</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>days</value>
+  </data>
 </root>

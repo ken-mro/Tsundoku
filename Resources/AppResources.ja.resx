@@ -225,4 +225,13 @@
   <data name="ReadBookFailed" xml:space="preserve">
     <value>証明書の発行に失敗しました。</value>
   </data>
+  <data name="OldestInStack" xml:space="preserve">
+    <value>いちばん古い本は {0} 日前に積みました</value>
+  </data>
+  <data name="StackedOn" xml:space="preserve">
+    <value>{0} に積読</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>日</value>
+  </data>
 </root>

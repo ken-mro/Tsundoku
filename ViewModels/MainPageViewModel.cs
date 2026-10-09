@@ -18,10 +18,18 @@ public partial class MainPageViewModel : BaseViewModel
     }
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(BooksInStackCountString))]
+    [NotifyPropertyChangedFor(nameof(BooksInStackCount))]
+    [NotifyPropertyChangedFor(nameof(OldestInStackString))]
+    [NotifyPropertyChangedFor(nameof(HasBooksInStack))]
     ObservableCollection<Book> _booksInStack = [];
 
-    public string BooksInStackCountString => $"{BooksInStack.Count.ToString()} {AppResources.BooksInStack}";
+    public int BooksInStackCount => BooksInStack.Count;
+
+    public bool HasBooksInStack => BooksInStack.Count > 0;
+
+    public string OldestInStackString => BooksInStack.Count == 0
+        ? string.Empty
+        : string.Format(AppResources.OldestInStack, BooksInStack.Max(x => x.DaysInStack));
 
     [ObservableProperty]
     bool _isRefreshing = false;

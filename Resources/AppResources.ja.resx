@@ -243,4 +243,10 @@
   <data name="ReadThisYear" xml:space="preserve">
     <value>今年読み切った本 {0} 冊</value>
   </data>
+  <data name="ScanHint" xml:space="preserve">
+    <value>本の裏にある 978 から始まるバーコードをスキャンしてください。</value>
+  </data>
+  <data name="OrTypeIsbn" xml:space="preserve">
+    <value>または ISBN を入力</value>
+  </data>
 </root>

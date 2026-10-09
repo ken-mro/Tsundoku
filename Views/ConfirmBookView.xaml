@@ -9,10 +9,7 @@
     x:DataType="viewmodels:ConfirmBookViewModel"
     HeightRequest="450"
     WidthRequest="330">
-    <Grid
-        Margin="5"
-        Padding="10"
-        RowSpacing="10">
+    <Grid Padding="8" RowSpacing="14">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -26,21 +23,26 @@
             VerticalOptions="Center" />
         <BoxView
             Grid.Row="1"
-            Margin="5,0"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Line},
+                                              Dark={StaticResource LineDark}}"
             HeightRequest="1"
             HorizontalOptions="Fill"
             VerticalOptions="Center"
-            Color="Gray" />
-        <HorizontalStackLayout
-            Grid.Row="2"
-            HorizontalOptions="Center"
-            Spacing="10">
+            Color="{AppThemeBinding Light={StaticResource Line},
+                                    Dark={StaticResource LineDark}}" />
+        <Grid Grid.Row="2" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
             <Button
                 Command="{Binding ReadBookCommand}"
+                Style="{StaticResource SecondaryButton}"
                 Text="{x:Static strings:AppResources.Read}" />
             <Button
+                Grid.Column="1"
                 Command="{Binding StackBookCommand}"
                 Text="{x:Static strings:AppResources.Stack}" />
-        </HorizontalStackLayout>
+        </Grid>
     </Grid>
 </toolkit:Popup>

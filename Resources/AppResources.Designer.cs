@@ -437,5 +437,23 @@ namespace Tsundoku.Resources {
                 return ResourceManager.GetString("ReadThisYear", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scan the barcode starting with 978 on the back of the book..
+        /// </summary>
+        internal static string ScanHint {
+            get {
+                return ResourceManager.GetString("ScanHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Or type the ISBN.
+        /// </summary>
+        internal static string OrTypeIsbn {
+            get {
+                return ResourceManager.GetString("OrTypeIsbn", resourceCulture);
+            }
+        }
     }
 }

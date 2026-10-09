@@ -244,4 +244,10 @@
   <data name="ReadThisYear" xml:space="preserve">
     <value>{0} read this year</value>
   </data>
+  <data name="ScanHint" xml:space="preserve">
+    <value>Scan the barcode starting with 978 on the back of the book.</value>
+  </data>
+  <data name="OrTypeIsbn" xml:space="preserve">
+    <value>Or type the ISBN</value>
+  </data>
 </root>

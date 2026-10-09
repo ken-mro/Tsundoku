@@ -235,4 +235,13 @@
   <data name="Days" xml:space="preserve">
     <value>days</value>
   </data>
+  <data name="ReadingCertificate" xml:space="preserve">
+    <value>Certificate of Reading</value>
+  </data>
+  <data name="TimeInStack" xml:space="preserve">
+    <value>Time in stack:</value>
+  </data>
+  <data name="ReadThisYear" xml:space="preserve">
+    <value>{0} read this year</value>
+  </data>
 </root>

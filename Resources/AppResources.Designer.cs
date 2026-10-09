@@ -410,5 +410,32 @@ namespace Tsundoku.Resources {
                 return ResourceManager.GetString("Days", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certificate of Reading.
+        /// </summary>
+        internal static string ReadingCertificate {
+            get {
+                return ResourceManager.GetString("ReadingCertificate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time in stack:.
+        /// </summary>
+        internal static string TimeInStack {
+            get {
+                return ResourceManager.GetString("TimeInStack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} read this year.
+        /// </summary>
+        internal static string ReadThisYear {
+            get {
+                return ResourceManager.GetString("ReadThisYear", resourceCulture);
+            }
+        }
     }
 }

@@ -28,6 +28,7 @@ public class Book
     public required DateTime ReadDate { get; set; }
     public string ReadDateString => ReadDate.ToString("yyyy.MM.dd", CultureInfo.InvariantCulture);
     public int DaysToFinish => Math.Max(0, (ReadDate.Date - RegistrationDate.Date).Days);
+    public string DaysToFinishString => $"{DaysToFinish} {AppResources.Days}";
     public required string Isbn10 { get; init; }
     public string ImageUrl => $"https://images.amazon.com/images/P/{Isbn10}.jpg";
     public string SmallImageUrl => $"https://images.amazon.com/images/P/{Isbn10}.01.TZZZZZZZ";

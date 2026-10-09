@@ -234,4 +234,13 @@
   <data name="Days" xml:space="preserve">
     <value>日</value>
   </data>
+  <data name="ReadingCertificate" xml:space="preserve">
+    <value>読了証明</value>
+  </data>
+  <data name="TimeInStack" xml:space="preserve">
+    <value>積読期間:</value>
+  </data>
+  <data name="ReadThisYear" xml:space="preserve">
+    <value>今年読み切った本 {0} 冊</value>
+  </data>
 </root>

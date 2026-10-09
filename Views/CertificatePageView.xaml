@@ -49,7 +49,7 @@
                                     BackgroundColor="{StaticResource Shu}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CertificatePageViewModel}}, x:DataType=viewmodels:CertificatePageViewModel, Path=DeleteCertificateCommand}"
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="trash.png" />
+                                    IconImageSource="swipe_delete.png" />
                             </SwipeView.LeftItems>
                             <Border Padding="6" Style="{StaticResource Card}">
                                 <!--  Thin gold frame inset from the card edge  -->

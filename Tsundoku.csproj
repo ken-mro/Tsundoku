@@ -58,7 +58,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 		<MauiImage Update="Resources\Images\brand_mark.svg" BaseSize="114,86" />
 
 		<!-- Custom Fonts -->
@@ -79,13 +78,6 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\craftmincho.otf" />
-	  <None Remove="Resources\Images\award.png" />
-	  <None Remove="Resources\Images\award_plain.png" />
-	  <None Remove="Resources\Images\book_stack.png" />
-	  <None Remove="Resources\Images\book_stack_plain.png" />
-	  <None Remove="Resources\Images\check.png" />
-	  <None Remove="Resources\Images\register.png" />
-	  <None Remove="Resources\Images\trash.png" />
 	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
 

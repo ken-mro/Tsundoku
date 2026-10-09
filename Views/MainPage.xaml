@@ -73,7 +73,7 @@
                                     BackgroundColor="{StaticResource Success}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, x:DataType=viewmodels:MainPageViewModel, Path=ReadBookCommand}"
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="check.png"
+                                    IconImageSource="swipe_read.png"
                                     Text="{x:Static strings:AppResources.Read}" />
                             </SwipeView.RightItems>
                             <SwipeView.LeftItems>
@@ -81,7 +81,7 @@
                                     BackgroundColor="{StaticResource Shu}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainPageViewModel}}, x:DataType=viewmodels:MainPageViewModel, Path=DeleteBookCommand}"
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="trash.png" />
+                                    IconImageSource="swipe_delete.png" />
                             </SwipeView.LeftItems>
 
                             <Border Style="{StaticResource Card}">

@@ -18,7 +18,10 @@ X='{http://schemas.microsoft.com/winfx/2009/xaml}'
 
 def xaml_files():
     for f in glob.glob(root+'**/*.xaml',recursive=True):
-        if '/obj/' not in f and '/bin/' not in f:
+        # glob returns backslash paths (and case-insensitive matches such as
+        # obj/.../Microsoft.Maui.Controls.Xaml directories) on Windows.
+        p=f.replace('\\','/')
+        if '/obj/' not in p and '/bin/' not in p and os.path.isfile(f):
             yield f
 
 # 1. StaticResource keys

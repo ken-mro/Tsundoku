@@ -5,6 +5,9 @@
 		     versioned TFM, and net10.0-android already binds Android 16 (API 36), so the built
 		     manifest still gets targetSdkVersion=36 as required by Google Play. -->
 		<TargetFrameworks>net10.0;net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<!-- -p:TsundokuNeutralOnly=true builds only the platform-neutral head, for machines without
+		     the iOS/MacCatalyst workloads (Linux, cloud sessions). Used by tools/verify/verify.sh. -->
+		<TargetFrameworks Condition="'$(TsundokuNeutralOnly)' == 'true'">net10.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net10.0-tizen</TargetFrameworks> -->
 

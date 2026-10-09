@@ -59,7 +59,7 @@ public partial class CertificatePageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlertAsync($"{AppResources.Equals}", ex.Message, "OK");
+            await Shell.Current.DisplayAlertAsync($"{AppResources.Error}", ex.Message, "OK");
         }
         finally
         {

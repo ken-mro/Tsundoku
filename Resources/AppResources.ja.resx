@@ -225,4 +225,28 @@
   <data name="ReadBookFailed" xml:space="preserve">
     <value>証明書の発行に失敗しました。</value>
   </data>
+  <data name="OldestInStack" xml:space="preserve">
+    <value>いちばん古い本は {0} 日前に積みました</value>
+  </data>
+  <data name="StackedOn" xml:space="preserve">
+    <value>{0} に積読</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="ReadingCertificate" xml:space="preserve">
+    <value>読了証明</value>
+  </data>
+  <data name="TimeInStack" xml:space="preserve">
+    <value>積読期間:</value>
+  </data>
+  <data name="ReadThisYear" xml:space="preserve">
+    <value>今年読み切った本 {0} 冊</value>
+  </data>
+  <data name="ScanHint" xml:space="preserve">
+    <value>本の裏にある 978 から始まるバーコードをスキャンしてください。</value>
+  </data>
+  <data name="OrTypeIsbn" xml:space="preserve">
+    <value>または ISBN を入力</value>
+  </data>
 </root>

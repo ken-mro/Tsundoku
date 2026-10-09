@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 積み背表紙: three offset book spines with a vermilion bookmark ribbon. -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<!-- Brand mark (stacked spines) for in-app use; drawn on an ink tile. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="570" height="430" viewBox="212 298 570 430">
   <rect x="232" y="586" width="530" height="122" rx="18" fill="#F2F3F1"/>
   <rect x="282" y="586" width="14" height="122" fill="#1F2D4A" fill-opacity="0.18"/>
   <rect x="698" y="586" width="14" height="122" fill="#1F2D4A" fill-opacity="0.18"/>

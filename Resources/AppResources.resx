@@ -226,4 +226,28 @@
   <data name="ReadBookFailed" xml:space="preserve">
     <value>Issue certificate failed</value>
   </data>
+  <data name="OldestInStack" xml:space="preserve">
+    <value>Oldest book stacked {0} days ago</value>
+  </data>
+  <data name="StackedOn" xml:space="preserve">
+    <value>Stacked {0}</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="ReadingCertificate" xml:space="preserve">
+    <value>Certificate of Reading</value>
+  </data>
+  <data name="TimeInStack" xml:space="preserve">
+    <value>Time in stack:</value>
+  </data>
+  <data name="ReadThisYear" xml:space="preserve">
+    <value>{0} read this year</value>
+  </data>
+  <data name="ScanHint" xml:space="preserve">
+    <value>Scan the barcode starting with 978 on the back of the book.</value>
+  </data>
+  <data name="OrTypeIsbn" xml:space="preserve">
+    <value>Or type the ISBN</value>
+  </data>
 </root>

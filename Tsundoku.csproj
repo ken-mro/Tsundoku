@@ -5,6 +5,9 @@
 		     versioned TFM, and net10.0-android already binds Android 16 (API 36), so the built
 		     manifest still gets targetSdkVersion=36 as required by Google Play. -->
 		<TargetFrameworks>net10.0;net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<!-- -p:TsundokuNeutralOnly=true builds only the platform-neutral head, for machines without
+		     the iOS/MacCatalyst workloads (Linux, cloud sessions). Used by tools/verify/verify.sh. -->
+		<TargetFrameworks Condition="'$(TsundokuNeutralOnly)' == 'true'">net10.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net10.0-tizen</TargetFrameworks> -->
 
@@ -49,18 +52,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- App Icon -->
-				<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' " Include="Resources\AppIcon\appicon.svg" Color="Transparent" BaseSize="128, 128" ForegroundScale="0.87" />
-		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst' " Include="Resources\AppIcon\appicon.svg" Color="Transparent" BaseSize="128, 128" ForegroundScale="0.9" />
-
-		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' " Include="Resources\AppIcon\appicon.svg" Color="Transparent" BaseSize="128, 128" ForegroundScale="0.55" />
-		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios' " Include="Resources\AppIcon\appicon.svg" Color="Transparent" BaseSize="128, 128" ForegroundScale=".9" />
+		<!-- App Icon: solid ink background + book-stack foreground. Android adaptive icons are
+		     masked to a circle, so the foreground is scaled down to stay inside the safe zone. -->
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'android' " Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#1F2D4A" BaseSize="128,128" />
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' " Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#1F2D4A" BaseSize="128,128" ForegroundScale="0.9" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.png" Color="AntiqueWhite" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#1F2D4A" BaseSize="192,192" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\brand_mark.svg" BaseSize="114,86" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -76,18 +77,13 @@
 	  <MauiCss Remove="Tsundoku.xUnitTest\**" />
 	  <MauiXaml Remove="Tsundoku.xUnitTest\**" />
 	  <None Remove="Tsundoku.xUnitTest\**" />
+	  <!-- Verification harness (tools/verify) is a separate project. -->
+	  <Compile Remove="tools\**" />
+	  <None Remove="tools\**" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\craftmincho.otf" />
-	  <None Remove="Resources\Images\award.png" />
-	  <None Remove="Resources\Images\award_plain.png" />
-	  <None Remove="Resources\Images\book_stack.png" />
-	  <None Remove="Resources\Images\book_stack_plain.png" />
-	  <None Remove="Resources\Images\check.png" />
-	  <None Remove="Resources\Images\register.png" />
-	  <None Remove="Resources\Images\trash.png" />
-	  <None Remove="Resources\Splash\splash.png" />
 	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
 

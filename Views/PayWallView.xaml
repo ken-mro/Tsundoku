@@ -17,27 +17,36 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Image
+                <Border
                     Grid.Column="0"
-                    Aspect="AspectFit"
-                    HeightRequest="100"
-                    Source="book_stack.png" />
+                    Margin="0,0,16,0"
+                    Padding="18,20"
+                    BackgroundColor="{StaticResource Ink}"
+                    StrokeShape="RoundRectangle 20"
+                    StrokeThickness="0"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="44"
+                        Source="brand_mark.png"
+                        WidthRequest="58" />
+                </Border>
 
                 <Label
                     Grid.Column="1"
                     LineBreakMode="WordWrap"
                     SemanticProperties.HeadingLevel="Level1"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
                     Style="{StaticResource Headline}"
-                    Text="{x:Static strings:AppResources.PayWallTitle}"
-                    TextColor="Black" />
+                    VerticalOptions="Center"
+                    Text="{x:Static strings:AppResources.PayWallTitle}" />
             </Grid>
 
             <Label
                 HorizontalOptions="Center"
                 IsVisible="{Binding AreOfferingsLoaded}"
                 Style="{StaticResource SubHeadline}"
-                Text="{x:Static strings:AppResources.PayWallSubTitle}"
-                TextColor="Black" />
+                Text="{x:Static strings:AppResources.PayWallSubTitle}" />
 
             <Button
                 Command="{Binding LoadOfferingsCommand}"
@@ -49,8 +58,7 @@
                 IsVisible="{Binding AreOfferingsLoaded}"
                 SemanticProperties.HeadingLevel="Level2"
                 Style="{StaticResource SubHeadline}"
-                Text="{x:Static strings:AppResources.Subscription}"
-                TextColor="Black" />
+                Text="{x:Static strings:AppResources.Subscription}" />
 
             <Button
                 Command="{Binding BuyItemCommand}"

@@ -7,31 +7,59 @@
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
     Title="{x:Static strings:AppResources.Register}"
     x:DataType="viewmodels:RegisterPageViewModel">
-    <Grid Margin="5">
+    <Grid Padding="20,12,20,20" RowSpacing="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <VerticalStackLayout Grid.Row="1" Spacing="10">
-            <Grid>
+
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            Spacing="20"
+            VerticalOptions="Center">
+            <Border
+                Padding="28,30"
+                BackgroundColor="{StaticResource Ink}"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 28"
+                StrokeThickness="0">
+                <Image
+                    HeightRequest="66"
+                    Source="brand_mark.png"
+                    WidthRequest="88" />
+            </Border>
+            <Label
+                HorizontalTextAlignment="Center"
+                LineBreakMode="WordWrap"
+                MaximumWidthRequest="300"
+                Style="{StaticResource Caption}"
+                FontSize="14"
+                Text="{x:Static strings:AppResources.ScanHint}" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="12">
+            <Button Command="{Binding NavigateToCameraPageCommand}" Text="{x:Static strings:AppResources.Scan}" />
+            <Label
+                HorizontalOptions="Center"
+                Style="{StaticResource Caption}"
+                Text="{x:Static strings:AppResources.OrTypeIsbn}" />
+            <Grid ColumnSpacing="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Entry
-                    Placeholder="{x:Static strings:AppResources.TypeIsbn}"
-                    Text="{Binding Isbn}"
-                    VerticalOptions="End" />
+                <Border Padding="12,0" Style="{StaticResource Card}">
+                    <Entry
+                        Placeholder="{x:Static strings:AppResources.TypeIsbn}"
+                        ReturnCommand="{Binding SearchCommand}"
+                        Text="{Binding Isbn}" />
+                </Border>
                 <Button
                     Grid.Column="1"
                     Command="{Binding SearchCommand}"
+                    Style="{StaticResource SecondaryButton}"
                     Text="{x:Static strings:AppResources.Search}" />
             </Grid>
-            <Button
-                Command="{Binding NavigateToCameraPageCommand}"
-                Text="{x:Static strings:AppResources.Scan}"
-                VerticalOptions="End" />
         </VerticalStackLayout>
-
     </Grid>
 </ContentPage>

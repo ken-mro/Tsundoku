@@ -18,10 +18,13 @@ public partial class CertificatePageViewModel : BaseViewModel
     }
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(ReadBookCertificatesCountString))]
+    [NotifyPropertyChangedFor(nameof(ReadBookCertificatesCount))]
+    [NotifyPropertyChangedFor(nameof(ReadThisYearString))]
     ObservableCollection<Book> _readBookCertificates = [];
 
-    public string ReadBookCertificatesCountString => $"{ReadBookCertificates.Count.ToString()} {AppResources.Certificate_s_}";
+    public int ReadBookCertificatesCount => ReadBookCertificates.Count;
+
+    public string ReadThisYearString => string.Format(AppResources.ReadThisYear, ReadBookCertificates.Count(x => x.ReadDate.Year == DateTime.Today.Year));
 
     [ObservableProperty]
     bool _isRefreshing = false;

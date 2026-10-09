@@ -8,153 +8,151 @@
     xmlns:viewmodels="clr-namespace:Tsundoku.ViewModels"
     Title="{x:Static strings:AppResources.Certificates}"
     x:DataType="viewmodels:CertificatePageViewModel">
-    <Grid Padding="5" RowSpacing="10">
+    <Grid RowSpacing="8">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label
-            Grid.Row="0"
-            FontSize="Large"
-            HorizontalOptions="Center"
-            Text="{Binding ReadBookCertificatesCountString}"
-            VerticalOptions="Center" />
+
+        <VerticalStackLayout Padding="20,12,20,4" Spacing="2">
+            <HorizontalStackLayout Spacing="4">
+                <Label Style="{StaticResource DisplayNumber}" Text="{Binding ReadBookCertificatesCount}" />
+                <Label
+                    Margin="0,0,0,6"
+                    Text="{x:Static strings:AppResources.Certificate_s_}"
+                    VerticalOptions="End" />
+            </HorizontalStackLayout>
+            <Label Style="{StaticResource Caption}" Text="{Binding ReadThisYearString}" />
+        </VerticalStackLayout>
+
         <RefreshView
             Grid.Row="1"
             Command="{Binding RefreshCommand}"
             IsRefreshing="{Binding IsRefreshing}">
             <CollectionView
                 x:Name="collectionView"
-                Background="AntiqueWhite"
+                Margin="12,0"
                 ItemsSource="{Binding ReadBookCertificates}"
                 VerticalOptions="Fill">
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="{Binding GridItemSpan}" />
+                    <GridItemsLayout
+                        HorizontalItemSpacing="8"
+                        Orientation="Vertical"
+                        Span="{Binding GridItemSpan}"
+                        VerticalItemSpacing="8" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:Book}">
                         <SwipeView>
                             <SwipeView.LeftItems>
                                 <SwipeItem
-                                    BackgroundColor="OrangeRed"
+                                    BackgroundColor="{StaticResource Shu}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CertificatePageViewModel}}, x:DataType=viewmodels:CertificatePageViewModel, Path=DeleteCertificateCommand}"
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="trash.png" />
+                                    IconImageSource="swipe_delete.png" />
                             </SwipeView.LeftItems>
-                            <Border
-                                Margin="2"
-                                Padding="5"
-                                BackgroundColor="Navy"
-                                HeightRequest="200">
+                            <Border Padding="6" Style="{StaticResource Card}">
+                                <!--  Thin gold frame inset from the card edge  -->
                                 <Border
-                                    BackgroundColor="Gold"
-                                    Stroke="Transparent"
-                                    StrokeShape="RoundRectangle 0,40,30,0"
-                                    StrokeThickness="2">
-                                    <Border
-                                        BackgroundColor="White"
-                                        Stroke="Transparent"
-                                        StrokeShape="RoundRectangle 0,90,60,0"
-                                        StrokeThickness="2">
-                                        <Grid Margin="10" VerticalOptions="Center">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="2*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image
-                                                Margin="10"
-                                                HeightRequest="150"
-                                                HorizontalOptions="Center"
-                                                VerticalOptions="Center">
-                                                <Image.Source>
-                                                    <UriImageSource
-                                                        CacheValidity="30"
-                                                        CachingEnabled="True"
-                                                        Uri="{Binding SmallImageUrl}" />
-                                                </Image.Source>
-                                            </Image>
-                                            <VerticalStackLayout
-                                                Grid.Column="1"
-                                                HorizontalOptions="Center"
-                                                VerticalOptions="Center">
-                                                <Image
-                                                    HeightRequest="25"
-                                                    HorizontalOptions="Center"
-                                                    Source="award.png"
-                                                    VerticalOptions="Center" />
+                                    Padding="12"
+                                    Stroke="{AppThemeBinding Light={StaticResource Kincha},
+                                                             Dark={StaticResource KinchaDark}}"
+                                    StrokeShape="RoundRectangle 6"
+                                    StrokeThickness="1">
+                                    <Grid ColumnSpacing="14">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="56" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image
+                                            Aspect="AspectFill"
+                                            HeightRequest="80"
+                                            VerticalOptions="Center"
+                                            WidthRequest="56">
+                                            <Image.Source>
+                                                <UriImageSource
+                                                    CacheValidity="30"
+                                                    CachingEnabled="True"
+                                                    Uri="{Binding SmallImageUrl}" />
+                                            </Image.Source>
+                                        </Image>
+
+                                        <VerticalStackLayout
+                                            Grid.Column="1"
+                                            Spacing="6"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                Margin="0,0,52,0"
+                                                CharacterSpacing="2"
+                                                FontFamily="craftmincho"
+                                                FontSize="16"
+                                                Text="{x:Static strings:AppResources.ReadingCertificate}"
+                                                TextColor="{AppThemeBinding Light={StaticResource Ink},
+                                                                            Dark={StaticResource TextPrimaryDark}}" />
+                                            <Grid
+                                                ColumnSpacing="8"
+                                                RowDefinitions="Auto,Auto,Auto"
+                                                RowSpacing="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Style="{StaticResource Caption}" Text="ISBN" />
                                                 <Label
-                                                    FontAttributes="Bold"
-                                                    FontSize="Large"
-                                                    HorizontalOptions="Center"
-                                                    Text="CERTIFICATE"
-                                                    TextColor="Black"
-                                                    VerticalOptions="Center" />
+                                                    Grid.Column="1"
+                                                    Style="{StaticResource Data}"
+                                                    Text="{Binding Isbn10}"
+                                                    TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
+                                                                                Dark={StaticResource TextPrimaryDark}}" />
                                                 <Label
-                                                    FontAttributes="Bold"
-                                                    FontSize="Micro"
-                                                    HorizontalOptions="Center"
-                                                    Text="OF ACHIEVEMENT"
-                                                    TextColor="Black"
-                                                    VerticalOptions="Center" />
-                                                <Grid
-                                                    Padding="10"
-                                                    ColumnSpacing="10"
-                                                    VerticalOptions="Center">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto" />
-                                                        <ColumnDefinition Width="Auto" />
-                                                    </Grid.ColumnDefinitions>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="Auto" />
-                                                        <RowDefinition Height="Auto" />
-                                                        <RowDefinition Height="Auto" />
-                                                    </Grid.RowDefinitions>
-                                                    <Label
-                                                        Grid.Row="1"
-                                                        FontAttributes="Bold"
-                                                        FontSize="Body"
-                                                        HorizontalOptions="Start"
-                                                        LineBreakMode="TailTruncation"
-                                                        LineHeight="1"
-                                                        Text="ISBN-10:"
-                                                        TextColor="Black"
-                                                        VerticalOptions="Center" />
-                                                    <Label
-                                                        Grid.Row="1"
-                                                        Grid.Column="1"
-                                                        FontAttributes="Bold"
-                                                        FontSize="Body"
-                                                        HorizontalOptions="Center"
-                                                        LineBreakMode="TailTruncation"
-                                                        LineHeight="1"
-                                                        Text="{Binding Isbn10}"
-                                                        TextColor="Red"
-                                                        VerticalOptions="Center" />
-                                                    <Label
-                                                        Grid.Row="2"
-                                                        FontAttributes="Bold"
-                                                        FontSize="Body"
-                                                        HorizontalOptions="Start"
-                                                        LineBreakMode="TailTruncation"
-                                                        LineHeight="1"
-                                                        Text="{x:Static strings:AppResources.ReadDate}"
-                                                        TextColor="Black"
-                                                        VerticalOptions="Center" />
-                                                    <Label
-                                                        Grid.Row="2"
-                                                        Grid.Column="2"
-                                                        FontAttributes="Bold"
-                                                        FontSize="Body"
-                                                        HorizontalOptions="Center"
-                                                        LineBreakMode="TailTruncation"
-                                                        LineHeight="1"
-                                                        Text="{Binding ReadDateString}"
-                                                        TextColor="Red"
-                                                        VerticalOptions="Center" />
-                                                </Grid>
-                                            </VerticalStackLayout>
-                                        </Grid>
-                                    </Border>
+                                                    Grid.Row="1"
+                                                    Style="{StaticResource Caption}"
+                                                    Text="{x:Static strings:AppResources.ReadDate}" />
+                                                <Label
+                                                    Grid.Row="1"
+                                                    Grid.Column="1"
+                                                    Style="{StaticResource Data}"
+                                                    Text="{Binding ReadDateString}"
+                                                    TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
+                                                                                Dark={StaticResource TextPrimaryDark}}" />
+                                                <Label
+                                                    Grid.Row="2"
+                                                    Style="{StaticResource Caption}"
+                                                    Text="{x:Static strings:AppResources.TimeInStack}" />
+                                                <Label
+                                                    Grid.Row="2"
+                                                    Grid.Column="1"
+                                                    Style="{StaticResource Data}"
+                                                    Text="{Binding DaysToFinishString}"
+                                                    TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
+                                                                                Dark={StaticResource TextPrimaryDark}}" />
+                                            </Grid>
+                                        </VerticalStackLayout>
+
+                                        <!--  Vermilion "read" seal  -->
+                                        <Border
+                                            Grid.Column="1"
+                                            Padding="0"
+                                            HeightRequest="46"
+                                            HorizontalOptions="End"
+                                            Rotation="-8"
+                                            Stroke="{AppThemeBinding Light={StaticResource Shu},
+                                                                     Dark={StaticResource ShuDark}}"
+                                            StrokeShape="Ellipse"
+                                            StrokeThickness="2"
+                                            VerticalOptions="Start"
+                                            WidthRequest="46">
+                                            <Label
+                                                FontFamily="craftmincho"
+                                                FontSize="13"
+                                                HorizontalOptions="Center"
+                                                Text="{x:Static strings:AppResources.Read}"
+                                                TextColor="{AppThemeBinding Light={StaticResource Shu},
+                                                                            Dark={StaticResource ShuDark}}"
+                                                VerticalOptions="Center" />
+                                        </Border>
+                                    </Grid>
                                 </Border>
                             </Border>
                         </SwipeView>

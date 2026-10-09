@@ -383,5 +383,77 @@ namespace Tsundoku.Resources {
                 return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oldest book stacked {0} days ago.
+        /// </summary>
+        internal static string OldestInStack {
+            get {
+                return ResourceManager.GetString("OldestInStack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stacked {0}.
+        /// </summary>
+        internal static string StackedOn {
+            get {
+                return ResourceManager.GetString("StackedOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to days.
+        /// </summary>
+        internal static string Days {
+            get {
+                return ResourceManager.GetString("Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certificate of Reading.
+        /// </summary>
+        internal static string ReadingCertificate {
+            get {
+                return ResourceManager.GetString("ReadingCertificate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time in stack:.
+        /// </summary>
+        internal static string TimeInStack {
+            get {
+                return ResourceManager.GetString("TimeInStack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} read this year.
+        /// </summary>
+        internal static string ReadThisYear {
+            get {
+                return ResourceManager.GetString("ReadThisYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scan the barcode starting with 978 on the back of the book..
+        /// </summary>
+        internal static string ScanHint {
+            get {
+                return ResourceManager.GetString("ScanHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Or type the ISBN.
+        /// </summary>
+        internal static string OrTypeIsbn {
+            get {
+                return ResourceManager.GetString("OrTypeIsbn", resourceCulture);
+            }
+        }
     }
 }

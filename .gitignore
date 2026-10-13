@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Claude Code local settings (the release skill keeps signing secrets here)
+.claude/settings.local.json

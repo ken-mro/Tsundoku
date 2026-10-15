@@ -51,108 +51,145 @@
                                     CommandParameter="{Binding .}"
                                     IconImageSource="swipe_delete.png" />
                             </SwipeView.LeftItems>
-                            <Border Padding="6" Style="{StaticResource Card}">
-                                <!--  Thin gold frame inset from the card edge  -->
+                            <Border Padding="5" Style="{StaticResource Card}">
+                                <!--  Double gold rule, like the border of a printed certificate  -->
                                 <Border
-                                    Padding="12"
+                                    Padding="3"
                                     Stroke="{AppThemeBinding Light={StaticResource Kincha},
                                                              Dark={StaticResource KinchaDark}}"
-                                    StrokeShape="RoundRectangle 6"
-                                    StrokeThickness="1">
-                                    <Grid ColumnSpacing="14">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="56" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
+                                    StrokeShape="Rectangle"
+                                    StrokeThickness="1.5">
+                                    <Border
+                                        Padding="14,12"
+                                        Stroke="{AppThemeBinding Light={StaticResource Kincha},
+                                                                 Dark={StaticResource KinchaDark}}"
+                                        StrokeShape="Rectangle"
+                                        StrokeThickness="0.5">
+                                        <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
+                                            <Label Style="{StaticResource CertificateTitle}" Text="{x:Static strings:AppResources.ReadingCertificate}" />
 
-                                        <Image
-                                            Aspect="AspectFill"
-                                            HeightRequest="80"
-                                            VerticalOptions="Center"
-                                            WidthRequest="56">
-                                            <Image.Source>
-                                                <UriImageSource
-                                                    CacheValidity="30"
-                                                    CachingEnabled="True"
-                                                    Uri="{Binding SmallImageUrl}" />
-                                            </Image.Source>
-                                        </Image>
-
-                                        <VerticalStackLayout
-                                            Grid.Column="1"
-                                            Spacing="6"
-                                            VerticalOptions="Center">
-                                            <Label
-                                                Margin="0,0,52,0"
-                                                CharacterSpacing="2"
-                                                FontFamily="craftmincho"
-                                                FontSize="16"
-                                                Text="{x:Static strings:AppResources.ReadingCertificate}"
-                                                TextColor="{AppThemeBinding Light={StaticResource Ink},
-                                                                            Dark={StaticResource TextPrimaryDark}}" />
+                                            <!--  Ornamental divider: hairline, diamond, hairline  -->
                                             <Grid
-                                                ColumnSpacing="8"
-                                                RowDefinitions="Auto,Auto,Auto"
-                                                RowSpacing="2">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition Width="*" />
-                                                </Grid.ColumnDefinitions>
-                                                <Label Style="{StaticResource Caption}" Text="ISBN" />
-                                                <Label
+                                                Grid.Row="1"
+                                                Margin="24,0"
+                                                ColumnDefinitions="*,Auto,*"
+                                                ColumnSpacing="6">
+                                                <BoxView
+                                                    HeightRequest="0.5"
+                                                    VerticalOptions="Center"
+                                                    Color="{AppThemeBinding Light={StaticResource Kincha},
+                                                                            Dark={StaticResource KinchaDark}}" />
+                                                <BoxView
                                                     Grid.Column="1"
-                                                    Style="{StaticResource Data}"
-                                                    Text="{Binding Isbn10}"
-                                                    TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
-                                                                                Dark={StaticResource TextPrimaryDark}}" />
-                                                <Label
-                                                    Grid.Row="1"
-                                                    Style="{StaticResource Caption}"
-                                                    Text="{x:Static strings:AppResources.ReadDate}" />
-                                                <Label
-                                                    Grid.Row="1"
-                                                    Grid.Column="1"
-                                                    Style="{StaticResource Data}"
-                                                    Text="{Binding ReadDateString}"
-                                                    TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
-                                                                                Dark={StaticResource TextPrimaryDark}}" />
-                                                <Label
-                                                    Grid.Row="2"
-                                                    Style="{StaticResource Caption}"
-                                                    Text="{x:Static strings:AppResources.TimeInStack}" />
-                                                <Label
-                                                    Grid.Row="2"
-                                                    Grid.Column="1"
-                                                    Style="{StaticResource Data}"
-                                                    Text="{Binding DaysToFinishString}"
-                                                    TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
-                                                                                Dark={StaticResource TextPrimaryDark}}" />
+                                                    HeightRequest="5"
+                                                    Rotation="45"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="5"
+                                                    Color="{AppThemeBinding Light={StaticResource Kincha},
+                                                                            Dark={StaticResource KinchaDark}}" />
+                                                <BoxView
+                                                    Grid.Column="2"
+                                                    HeightRequest="0.5"
+                                                    VerticalOptions="Center"
+                                                    Color="{AppThemeBinding Light={StaticResource Kincha},
+                                                                            Dark={StaticResource KinchaDark}}" />
                                             </Grid>
-                                        </VerticalStackLayout>
 
-                                        <!--  Vermilion "read" seal  -->
-                                        <Border
-                                            Grid.Column="1"
-                                            Padding="0"
-                                            HeightRequest="46"
-                                            HorizontalOptions="End"
-                                            Rotation="-8"
-                                            Stroke="{AppThemeBinding Light={StaticResource Shu},
-                                                                     Dark={StaticResource ShuDark}}"
-                                            StrokeShape="Ellipse"
-                                            StrokeThickness="2"
-                                            VerticalOptions="Start"
-                                            WidthRequest="46">
-                                            <Label
-                                                FontFamily="craftmincho"
-                                                FontSize="13"
-                                                HorizontalOptions="Center"
-                                                Text="{x:Static strings:AppResources.Read}"
-                                                TextColor="{AppThemeBinding Light={StaticResource Shu},
-                                                                            Dark={StaticResource ShuDark}}"
-                                                VerticalOptions="Center" />
-                                        </Border>
-                                    </Grid>
+                                            <Grid
+                                                Grid.Row="2"
+                                                ColumnDefinitions="52,*,Auto"
+                                                ColumnSpacing="12">
+                                                <Border
+                                                    Padding="0"
+                                                    HeightRequest="74"
+                                                    Stroke="{AppThemeBinding Light={StaticResource Line},
+                                                                             Dark={StaticResource LineDark}}"
+                                                    StrokeShape="Rectangle"
+                                                    StrokeThickness="0.5"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="52">
+                                                    <Image Aspect="AspectFill">
+                                                        <Image.Source>
+                                                            <UriImageSource
+                                                                CacheValidity="30"
+                                                                CachingEnabled="True"
+                                                                Uri="{Binding SmallImageUrl}" />
+                                                        </Image.Source>
+                                                    </Image>
+                                                </Border>
+
+                                                <Grid
+                                                    Grid.Column="1"
+                                                    ColumnSpacing="10"
+                                                    RowDefinitions="Auto,Auto,Auto"
+                                                    RowSpacing="4"
+                                                    VerticalOptions="Center">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Style="{StaticResource Caption}" Text="ISBN" />
+                                                    <Label
+                                                        Grid.Column="1"
+                                                        LineBreakMode="NoWrap"
+                                                        Style="{StaticResource Data}"
+                                                        Text="{Binding Isbn10}"
+                                                        TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
+                                                                                    Dark={StaticResource TextPrimaryDark}}" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Style="{StaticResource Caption}"
+                                                        Text="{x:Static strings:AppResources.ReadDate}" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Grid.Column="1"
+                                                        LineBreakMode="NoWrap"
+                                                        Style="{StaticResource Data}"
+                                                        Text="{Binding ReadDateString}"
+                                                        TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
+                                                                                    Dark={StaticResource TextPrimaryDark}}" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Style="{StaticResource Caption}"
+                                                        Text="{x:Static strings:AppResources.TimeInStack}" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Grid.Column="1"
+                                                        LineBreakMode="NoWrap"
+                                                        Style="{StaticResource Data}"
+                                                        Text="{Binding DaysToFinishString}"
+                                                        TextColor="{AppThemeBinding Light={StaticResource TextPrimary},
+                                                                                    Dark={StaticResource TextPrimaryDark}}" />
+                                                </Grid>
+
+                                                <!--  Vermilion seal (rakkan), bottom right like a signed document  -->
+                                                <Border
+                                                    Grid.Column="2"
+                                                    Padding="0"
+                                                    BackgroundColor="{AppThemeBinding Light={StaticResource Shu},
+                                                                                      Dark={StaticResource ShuDark}}"
+                                                    HeightRequest="40"
+                                                    StrokeShape="RoundRectangle 3"
+                                                    StrokeThickness="0"
+                                                    VerticalOptions="End"
+                                                    WidthRequest="40">
+                                                    <Label
+                                                        FontAttributes="Bold"
+                                                        FontFamily="{OnPlatform iOS=HiraMinProN-W6,
+                                                                                MacCatalyst=HiraMinProN-W6,
+                                                                                Android=serif,
+                                                                                Default=Georgia}"
+                                                        FontSize="12"
+                                                        HorizontalOptions="Center"
+                                                        MaxLines="1"
+                                                        Text="{x:Static strings:AppResources.Read}"
+                                                        TextColor="{AppThemeBinding Light={StaticResource Surface},
+                                                                                    Dark={StaticResource SurfaceDark}}"
+                                                        VerticalOptions="Center" />
+                                                </Border>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
                                 </Border>
                             </Border>
                         </SwipeView>

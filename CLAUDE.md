@@ -42,7 +42,7 @@ tools/verify/verify.sh
   - `Ink` #1F2D4A（主色）、`Paper` #F2F3F1（背景）、`Shu` #C8432B（朱：読了・警告だけに使う）、`Kincha` #C99A2E（証明書の枠）
   - `Surface`/`SurfaceDark`、`TextPrimary`/`TextPrimaryDark`、`TextSecondary`/`TextSecondaryDark`、`Line`/`LineDark`
   - 背表紙パレット `Spine1`〜`Spine5`。`Book.Color` と値を揃える
-- 文字のスタイル：`PageTitle`・`DisplayNumber`・`Headline`（明朝体 `craftmincho`。見出しと数字だけに使う）、`Caption`、`Data`（ISBN・日付用の等幅）。本文は OS 標準の日本語フォントのまま（`FontFamily` を指定しない）。
+- 文字のスタイル：`PageTitle`・`DisplayNumber`・`Headline`（明朝体 `craftmincho`。見出しと数字だけに使う）、`Caption`、`Data`（ISBN・日付用の等幅）。読了証明書の見出しだけは `CertificateTitle`（OS の明朝／セリフ体、大文字・字間広め、1 行に収める）。本文は OS 標準の日本語フォントのまま（`FontFamily` を指定しない）。
 - 部品のスタイル：カードは `Style="{StaticResource Card}"`、副ボタンは `SecondaryButton`。
 - アイコン・スプラッシュ・画像は SVG。`Resources/AppIcon/appicon.svg`（背景）と `appiconfg.svg`（前景）、`Resources/Splash/splash.svg`、`Resources/Images/*.svg`。XAML からは `name.png` で参照する。
 - タブとスワイプのアイコンは 24px の線画で、タブの色は Shell が塗る。
